@@ -12,7 +12,7 @@ export class StudentLoginComponent implements OnInit {
 
 
 
-    url = "http://localhost:8003/Book-My-Flights/FlightControllerServlet";
+   // url = "http://localhost:8003/Book-My-Flights/FlightControllerServlet";
 
     /*
     constructor(private logimservice: StudentLoginService) {
