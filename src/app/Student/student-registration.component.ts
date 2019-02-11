@@ -10,6 +10,7 @@ import { Student } from './student';
 export class StudentRegistrationComponent {
     students: Student=new Student();
     
+    constructor(st: StudentService)
     
 
 }  
