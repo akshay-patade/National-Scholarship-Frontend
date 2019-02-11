@@ -1,4 +1,5 @@
 import {  Component } from '@angular/core'
+import { Student } from './student';
 
 
 @Component({
@@ -7,6 +8,8 @@ import {  Component } from '@angular/core'
 
 })
 export class StudentRegistrationComponent {
-
+    students: Student=new Student();
+    
+    
 
 }  
