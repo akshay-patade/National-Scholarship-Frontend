@@ -10,8 +10,8 @@
                     <label class="col-sm-3 control-label">STATE OF DOMICILE</label>
                     <div class="col-sm-12">
                             <select name="stateslist">
-                                <option value="">Select District</option>
-                                <option value="">Andaman and Nicobar Islands</option>
+                                <option value="none">Select District</option>
+                                <option value="andaman">Andaman and Nicobar Islands</option>
                             </select>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">NAME:(AS PER YOUR MARKSHEET)</label>
                     <div class="col-sm-12">
-                        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control" autofocus required>
+                        <input type="text" id="name" name="name" [(ngModel)]="students.name"  placeholder="Enter your name" class="form-control" autofocus required>
                     </div>
                 </div>
 
@@ -141,11 +141,11 @@
 
                 <!--SUBMIT-->
                 <div class="form-group">   
-                        <button type="button" class="btn btn-primary btn-lg btn-block">SUBMIT</button>
+                        <input type="submit" class="btn btn-primary btn-lg btn-block">
                 </div>
 
             </form>
-        </div>
-
+        </div> 
     </body>
 </html>
+
