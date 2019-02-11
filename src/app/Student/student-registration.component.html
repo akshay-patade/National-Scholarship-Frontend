@@ -1,151 +1,151 @@
 <html>
-    <style>
-    
-    </style>
-<body style="background-color:grey" >
-    <div class="container">
-        <h1 style="text-align: center">FRESH STUDENT REGISTRATION FORM</h1>
-        <br/>
-        <form style="font-family: 'Sarabun', sans-serif;color:black">
+    <body style="background:grey ">
+        <div class="container">
+            <form class="form-horizontal">
+                <!--Heading-->
+                <h2 style="text-align:center;">FRESH STUDENT REGISTRATION FORM</h2>
+                
+                <!--State of domicile-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">STATE OF DOMICILE</label>
+                    <div class="col-sm-12">
+                            <select name="stateslist">
+                                <option value="">Select District</option>
+                                <option value="">Andaman and Nicobar Islands</option>
+                            </select>
+                    </div>
+                </div>
+
+                <!--DISTRICT-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">DISTRICT</label>
+                        <div class="col-sm-12">
+                            <select name="stateslist">
+                                <option value="">Select District</option>
+                                <option value="">Andaman and Nicobar Islands</option>
+                            </select>
+                        </div>
+                </div>
             
-            <!--State-->
-            STATE OF DOMICILE
-            <select name="states">
-                <option value="">Select State</option>
-                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chandigarh">Chandigarh</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
-                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-                <option value="Daman and Diu">Daman and Diu</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Lakshadweep">Lakshadweep</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Orissa">Orissa</option>
-                <option value="Pondicherry">Pondicherry</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttaranchal">Uttaranchal</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="West Bengal">West Bengal</option>
-            </select>
 
 
-
-            <br/>
-            <br/>
-
-
-            <!--NAME-->
-            <div class="form-group">
-                <label >NAME: (AS IN MARK SHEETS)</label>
-                <input type="text" class="form-control" id="name" name="name"  placeholder="Enter your name" required>
-            </div>
+                <!--Name -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">NAME:(AS PER YOUR MARKSHEET)</label>
+                    <div class="col-sm-12">
+                        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control" autofocus required>
+                    </div>
+                </div>
 
 
-            <!--DOB-->
-            <div class="form-group">
-                <label >DOB</label>
-                <input type="date" id="dob" name="dob">
-            </div>
-            
-            Gender 
-            <!--Gender-->
-            <select>
-                    <label >asjnbajhsbajhshjasju</label>
-                    <option value="" selected disabled>Gender</option>
-                    <option value="">Male</option>
-                    <option value="">Female</option>
-                    <option value="">Other</option>
-            </select>
+                <!--Date of birth (DOB) -->
+                <div class="form-group">
+                        <label class="col-sm-3 control-label">DOB:</label>
+                        <div class="col-sm-12">
+                            <input type="DATE" id="date" name="date" class="form-control"  required>
+                        </div>
+                </div>
 
-            <br/>
-            <br/>
+                 <!--GENDER-->
+                 <div class="form-group">
+                        <label class="col-sm-3 control-label">GENDER</label>
+                            <div class="col-sm-12">
+                                <select name="stateslist">
+                                    <option value="gender">Select Gender</option>
+                                    <option value="male">MALE</option>
+                                    <option value="female">FEMALE</option>
+                                    <option value="other">OTHER</option>
+                                </select>
+                            </div>
+                    </div>
 
-            <!--MOBILE NUMBER-->
-            <div class="form-group">
-                <label >MOBILE NUMBER</label>
-                <input type="number" class="form-control" id="mobnumber" name="mobnumber"  placeholder="Enter your mobile number" required>
-            </div>
 
-            <!--EMAIL-->
-            <div class="form-group">
-                <label >EMAIL ID</label>
-                <input type="email" class="form-control" id="email" name="email"  placeholder="Enter your email" required>
-            </div>
+                <!--Mobile Number -->
+                <div class="form-group">
+                    <label  class="col-sm-3 control-label">MOBILE NUMBER:</label>
+                    <div class="col-sm-12">
+                        <input type="number" id="mobilenumber" name="mobilenumber" placeholder="Enter your mobile number" class="form-control" required >
+                    </div>
+                </div>
 
-            <!--INSTITUTE CODE-->
-            <div class="form-group">
-                <label >INSTITUDE CODE:</label>
-                <input type="text" class="form-control" id="inscode" name="inscode"  placeholder="Enter your bank name" required>
-            </div>
+                <!--Email id -->
+                <div class="form-group">
+                        <label  class="col-sm-3 control-label">EMAIL ID:</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="EMIAL" name="EMAIL" placeholder="Enter your email " class="form-control" required >
+                            </div>
+                    </div>
 
-            <!--AADHAR NUMBER-->
-            <div class="form-group">
-                    <label >AADHAR NUMBER:</label>
-                    <input type="number" class="form-control" id="addnumber" name="addnumber"  placeholder="Enter your bank name" required>
-            </div>
+                <!--Bank ifsc code -->
+                <div class="form-group">
+                    <label  class="col-sm-3 control-label">INSTITUTE CODE:</label>
+                        <div class="col-sm-12">
+                            <input type="text" id="institudecode" name="institudecode" placeholder="Enter your institute code " class="form-control" required >
+                        </div>
+                </div>
 
-             <!--BANK ACCOUNT NUMBER-->
-             <div class="form-group">
-                    <label >BANK ACCOUNT NUMBER:</label>
-                    <input type="text" class="form-control" id="bankaccnumber" name="bankaccnumber"  placeholder="Enter your bank name" required>
-            </div>
+                <!--Aadhar number -->
+                <div class="form-group">
+                    <label  class="col-sm-3 control-label">AADHAR NUMBER:</label>
+                        <div class="col-sm-12">
+                            <input type="number" id="aadharnumber" name="aadharnumber" placeholder="Enter your aadharnumber" class="form-control" required >
+                        </div>
+                </div>
 
-             <!--BANK IFSC CODE-->
-             <div class="form-group">
-                    <label >BANK IFSC CODE:</label>
-                    <input type="text" class="form-control" id="bankifsccode" name="bankifsccode"  placeholder="Enter your bank name" required>
-            </div>
+                <!--Bank ifsc code -->
+                <div class="form-group">
+                    <label  class="col-sm-3 control-label">BANK IFSC CODE:</label>
+                        <div class="col-sm-12">
+                            <input type="text" id="bankifsccode" name="bankifsccode" placeholder="Enter your bank ifsc code" class="form-control" required >
+                        </div>
+                </div>
 
-            <!--BANK NAME-->
-            <div class="form-group">
-                    <label >BANK NAME:</label>
-                    <input type="text" class="form-control" id="bankname" name="bankname"  placeholder="Enter your bank name" required>
-            </div>
+                <!--Bank account number -->
+                <div class="form-group">
+                    <label for="bankaccountnumber" class="col-sm-3 control-label">BANK ACCOUNT NUMBER:</label>
+                        <div class="col-sm-12">
+                            <input type="number" id="bankaccountnumber" name="bankaccountnumber" placeholder="Enter your bank account number" class="form-control" required >
+                        </div>
+                </div>
 
-            <!--SET PASSWORD-->
-            <div class="form-group">
-                <label>SET YOUR PASSWORD</label>
-                <input type="password" class="form-control" id="setpassword" name="setpassword" placeholder="Create your password" required>
-            </div>
+                <!--Bank name -->
+                <div class="form-group">
+                    <label  class="col-sm-3 control-label">BANK NAME:</label>
+                        <div class="col-sm-12">
+                            <input type="text" id="bankname" name="bankname" placeholder="Enter your bank name" class="form-control" required >
+                        </div>
+                </div>
 
-            <!--CONFIRM PASSWORD-->
-            <div class="form-group">
-                <label>SET YOUR PASSWORD</label>
-                <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Create your password" required>
-            </div>
+                <!--Set password -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">SET PASSWORD:</label>
+                    <div class="col-sm-12">
+                        <input type="password" id="setpassword" name="setpassword" placeholder="SET YOUR PASSWORD" class="form-control" required >
+                    </div>
+                </div>
 
-            <!--CONFIRMATION CHECKBOX-->
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="confirm" name="confirm">
-                <label class="form-check-label" for="exampleCheck1">ALL THE ABOVE INFORMATION FURNISHED BY ME IS TRUE TO  THE BEST OF KNOWLEDGE</label>
-            </div>
+                <!--Confirm password -->
+                <div class="form-group">
+                    <label  class="col-sm-3 control-label">CONFIRM PASSWORD:</label>
+                        <div class="col-sm-12">
+                            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="CONFIRM YOUR PASSWORD" class="form-control" required >
+                        </div>
+                </div>
 
-            <!--SUBMIT BUTTON-->
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                <!--Agreement-->
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="checkbox" name="read" value="read"> ALL THE ABOVE INFORMATION FURNISHED BY ME IS TRUE TO THE BEST OF MY KNOWLEDGE<br>
+                    </div>
+                </div>
 
-    </div>
+                <!--SUBMIT-->
+                <div class="form-group">   
+                        <button type="button" class="btn btn-primary btn-lg btn-block">SUBMIT</button>
+                </div>
 
-</body>
+            </form>
+        </div>
+
+    </body>
 </html>
