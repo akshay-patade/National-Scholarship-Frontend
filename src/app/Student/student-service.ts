@@ -1,19 +1,20 @@
 
 import { Injectable,  OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { User } from './user';
+import { Student } from './student';
 
 @Injectable()
 
 export class StudentService {
-    users : User[];
+    students : Student[];
     
 constructor(private http:HttpClient){
 
 }
-    sendToServer(url,user){
+    sendToServer(students){
         //our code to be communicated with the server will be here
-     return this.http.post(url,user) 
+        let url="http://localhost:8085/student/add";
+        return this.http.post(url,students); 
      
       }
     

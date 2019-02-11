@@ -1,5 +1,7 @@
-import {  Component } from '@angular/core'
+import {  Component, Injectable } from '@angular/core'
 import { Student } from './student';
+import { StudentService } from './student-service';
+
 
 
 @Component({
@@ -7,10 +9,21 @@ import { Student } from './student';
     templateUrl: './student-registration.component.html',
 
 })
+
+@Injectable ()
 export class StudentRegistrationComponent {
     students: Student=new Student();
-    
-    constructor(st: StudentService)
+    response:string;
+    constructor( public ss: StudentService) {
+
+    }
+    add() {
+        this.ss.sendToServer(this.students).subscribe(
+            data => {
+                this.response=data['status']
+            }
+        );
+    }
     
 
 }  

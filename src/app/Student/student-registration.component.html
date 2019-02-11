@@ -9,9 +9,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">STATE OF DOMICILE</label>
                     <div class="col-sm-12">
-                            <select name="stateslist">
+                            <select name="stateslist" [(ngModel)]="students.stateOfDomicile">
                                 <option value="none">Select District</option>
-                                <option value="andaman">Andaman and Nicobar Islands</option>
+                                <option value="andaman">Maharashtra</option>
                             </select>
                     </div>
                 </div>
@@ -20,9 +20,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">DISTRICT</label>
                         <div class="col-sm-12">
-                            <select name="stateslist">
-                                <option value="">Select District</option>
-                                <option value="">Andaman and Nicobar Islands</option>
+                            <select name="stateslist" [(ngModel)]="students.district">
+                                <option value="none">Select District</option>
+                                <option value="Mumbai">Mumbai</option>
                             </select>
                         </div>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="form-group">
                         <label class="col-sm-3 control-label">DOB:</label>
                         <div class="col-sm-12">
-                            <input type="DATE" id="date" name="date" class="form-control"  required>
+                            <input type="DATE" id="date" name="date" class="form-control" [(ngModel)]=students.dob  required>
                         </div>
                 </div>
 
@@ -52,9 +52,9 @@
                             <div class="col-sm-12">
                                 <select name="stateslist">
                                     <option value="gender">Select Gender</option>
-                                    <option value="male">MALE</option>
-                                    <option value="female">FEMALE</option>
-                                    <option value="other">OTHER</option>
+                                    <option value="MALE" [(ngModel)]="students.gender" >MALE</option>
+                                    <option value="FEMALE" [(ngModel)]="students.gender">FEMALE</option>
+                                    <option value="OTHER" [(ngModel)]="students.gender">OTHER</option>
                                 </select>
                             </div>
                     </div>
@@ -62,9 +62,9 @@
 
                 <!--Mobile Number -->
                 <div class="form-group">
-                    <label  class="col-sm-3 control-label">MOBILE NUMBER:</label>
+                    <label  class="col-sm-3 control-label" >MOBILE NUMBER:</label>
                     <div class="col-sm-12">
-                        <input type="number" id="mobilenumber" name="mobilenumber" placeholder="Enter your mobile number" class="form-control" required >
+                        <input type="number" id="mobilenumber" name="mobilenumber" [(ngModel)]=students.mobileNo placeholder="Enter your mobile number" class="form-control" required >
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                 <div class="form-group">
                         <label  class="col-sm-3 control-label">EMAIL ID:</label>
                             <div class="col-sm-12">
-                                <input type="text" id="EMIAL" name="EMAIL" placeholder="Enter your email " class="form-control" required >
+                                <input type="text" id="EMAIL" name="EMAIL"  [(ngModel)]=students.email> placeholder="Enter your email " class="form-control" required >
                             </div>
                     </div>
 
@@ -80,7 +80,7 @@
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">INSTITUTE CODE:</label>
                         <div class="col-sm-12">
-                            <input type="text" id="institudecode" name="institudecode" placeholder="Enter your institute code " class="form-control" required >
+                            <input type="text" id="institudecode" name="institudecode" [(ngModel)]=students.instituteCode placeholder="Enter your institute code " class="form-control" required >
                         </div>
                 </div>
 
@@ -88,7 +88,7 @@
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">AADHAR NUMBER:</label>
                         <div class="col-sm-12">
-                            <input type="number" id="aadharnumber" name="aadharnumber" placeholder="Enter your aadharnumber" class="form-control" required >
+                            <input type="text" id="aadharnumber" name="aadharnumber" [(ngModel)]=students.adharNo placeholder="Enter your aadharnumber" class="form-control" required >
                         </div>
                 </div>
 
@@ -96,7 +96,7 @@
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">BANK IFSC CODE:</label>
                         <div class="col-sm-12">
-                            <input type="text" id="bankifsccode" name="bankifsccode" placeholder="Enter your bank ifsc code" class="form-control" required >
+                            <input type="text" id="bankifsccode" name="bankifsccode" [(ngModel)]=students.bankIfscCode placeholder="Enter your bank ifsc code" class="form-control" required >
                         </div>
                 </div>
 
@@ -104,7 +104,7 @@
                 <div class="form-group">
                     <label for="bankaccountnumber" class="col-sm-3 control-label">BANK ACCOUNT NUMBER:</label>
                         <div class="col-sm-12">
-                            <input type="number" id="bankaccountnumber" name="bankaccountnumber" placeholder="Enter your bank account number" class="form-control" required >
+                            <input type="number" id="bankaccountnumber" name="bankaccountnumber" [(ngModel)]=students.bankAccNo placeholder="Enter your bank account number" class="form-control" required >
                         </div>
                 </div>
 
@@ -112,7 +112,7 @@
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">BANK NAME:</label>
                         <div class="col-sm-12">
-                            <input type="text" id="bankname" name="bankname" placeholder="Enter your bank name" class="form-control" required >
+                            <input type="text" id="bankname" name="bankname" placeholder="Enter your bank name" [(ngModel)]=students.bankName class="form-control" required >
                         </div>
                 </div>
 
@@ -120,7 +120,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">SET PASSWORD:</label>
                     <div class="col-sm-12">
-                        <input type="password" id="setpassword" name="setpassword" placeholder="SET YOUR PASSWORD" class="form-control" required >
+                        <input type="password" id="setpassword" name="setpassword" placeholder="SET YOUR PASSWORD"  class="form-control" required >
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
                 <div class="form-group">
                     <label  class="col-sm-3 control-label">CONFIRM PASSWORD:</label>
                         <div class="col-sm-12">
-                            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="CONFIRM YOUR PASSWORD" class="form-control" required >
+                            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="CONFIRM YOUR PASSWORD" [(ngModel)]=students.password class="form-control" required >
                         </div>
                 </div>
 
@@ -141,7 +141,7 @@
 
                 <!--SUBMIT-->
                 <div class="form-group">   
-                        <input type="submit" class="btn btn-primary btn-lg btn-block">
+                        <input type="submit" (click)="add()" class="btn btn-primary btn-lg btn-block">
                 </div>
 
             </form>
