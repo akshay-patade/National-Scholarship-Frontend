@@ -1,38 +1,19 @@
-<!-- <script>
-    var password=document.getElementById("password"), confirmPassword=document.getElementById("confirmPassword")
-    function validatePassword(){
-        if(password.value !=confirmPassword.value){
-            confirmPassword.setCustomValidity("Passwords dont match");
-        }
-        else{
-            confirmPassword.setCustomValidity('');
-        }
-        }
-        password.onchange=validatePassword;
-        confirmPassword.onkeyup=validatePassword;
-        </script> -->
-
 <body style="background-color: bisque;">
     <div class="container">
         <form #form="ngForm" (ngSubmit)="add(instituteForm)" class="form table-responsive" ngNativeValidate autofocus
             required>
-            <h2>Institute Registration Request Form</h2>
+            <h2>Scholarship Application Form</h2>
             <p>All fields marked with * are required</p>
             <fieldset>
 
                 <legend>Basic Details</legend>
                 <!--Institute Category-->
-                <label for="instituteCategory"> <b> Institute Category * </b> </label>
-                <select id="InstituteList" name="category" [(ngModel)]="institutes.instituteCategory" [ngModelOptions]="{standalone: true}" required>
-                    <option value="management">Institute of Managament</option>
-                    <option value="technology">Institute of Technology</option>
-                    <option value="forest">Institute of Forest Services</option>
-                    <option value="rnd">Institute of Research and Development</option>
-                </select>
+                <label for="aadharNo"> <b> Adhar No * </b> </label>
+                <input type="text" [(ngModel)]="institutes.instituteName" name="InstituteName" pattern="[a-zA-Z]*">
                 <br><br>
 
 
-                Institute Name
+               
                 <label for="name"> <b> Institute Name * </b> </label>
                 <input type="text" [(ngModel)]="institutes.instituteName" name="InstituteName" pattern="[a-zA-Z]*"
                     placeholder="Enter your institue name" title="Enter only alphabets" autofocus required /><br><br>

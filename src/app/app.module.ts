@@ -8,12 +8,16 @@ import { InstituteRegistrationComponent } from './Institute/institute-registrati
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StudentService } from './Student/student-service';
+import { InstituteService } from './Institute/institute-service';
+import { InstituteLoginComponent } from './Institute/institute-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InstituteRegistrationComponent,
-    StudentRegistrationComponent
+    StudentRegistrationComponent,
+    InstituteLoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,7 @@ import { StudentService } from './Student/student-service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [HttpClient,StudentService],
+  providers: [HttpClient,StudentService,InstituteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
