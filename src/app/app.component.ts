@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <!--The content below is only a placeholder and can be replaced.-->
-    
-    <institute-registration>
-    </institute-registration>
+    <student-registration>
+    </student-registration>
+
   `,
   styles: []
 })
