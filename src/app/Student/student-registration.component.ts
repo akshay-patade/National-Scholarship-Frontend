@@ -1,7 +1,8 @@
-import {  Component, Injectable } from '@angular/core'
+import { Component } from '@angular/core'
 import { Student } from './student';
 import { StudentService } from './student-service';
-
+import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+import { IfStmt } from '@angular/compiler';
 
 
 @Component({
@@ -9,21 +10,52 @@ import { StudentService } from './student-service';
     templateUrl: './student-registration.component.html',
 
 })
-
-@Injectable ()
 export class StudentRegistrationComponent {
-    students: Student=new Student();
-    response:string;
-    constructor( public ss: StudentService) {
+    students: Student = new Student();
+    response: string;
+    che: Boolean;
+    confirmpass: string;
+    array = { password: "", msg: "" };
+
+    constructor(public ss: StudentService) {
 
     }
-    add() {
-        this.ss.sendToServer(this.students).subscribe(
-            data => {
-                this.response=data['status']
-            }
-        );
+
+    keyPress(event: any) {
+        const pattern = /[0-9\+\-\ ]/;
+        let inputChar = String.fromCharCode(event.charCode);
+        if (event.keyCode != 8 && !pattern.test(inputChar)) {
+            event.preventDefault();
+        }
     }
-    
+
+    check(regform) {
+        let confirm = true;
+
+        //Verify the password
+        if (this.confirmpass != this.students.password) {
+            confirm = false;
+            this.array['password'] = "Pasword does not match";
+        }
+
+        //check whether checkbox is checked or not
+        else if (!this.che) {
+            confirm = false;
+            this.array['msg'] = "Please check the above checkbox";
+        }
+
+        //Send the data to the database
+        if (confirm) {
+            this.ss.sendToServer(this.students).subscribe(
+                data => {
+                    this.response = data['status'];
+                }
+            )
+        }
+
+
+    }
+
+
 
 }  
