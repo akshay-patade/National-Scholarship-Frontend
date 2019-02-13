@@ -3,13 +3,13 @@ import { Institute } from './institute';
 
 
 @Component({
-selector : 'login',
-templateUrl : './institute-login.component.html'
+    selector: 'login',
+    templateUrl: './institute-login.component.html'
 })
 
-export class InstituteLoginComponent{
-    institutes: Institute=new Institute();
-    response:string;
+export class InstituteLoginComponent {
+    institutes: Institute = new Institute();
+    response: string;
 
     // constructor( public is: InstituteService) {
 
@@ -20,5 +20,5 @@ export class InstituteLoginComponent{
     //         data => {
     //             this.response=data['status']
     //     });
-    
+
 }

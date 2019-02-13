@@ -133,7 +133,7 @@
         <label class="col-sm-3 control-label">SET PASSWORD:</label>
         <div class="col-sm-12">
           <input type="password" id="setpassword" name="setpassword" [(ngModel)]=students.password
-            placeholder="SET YOUR PASSWORD" class="form-control" required>
+            placeholder="SET YOUR PASSWORD" class="form-control"  required>
         </div>
       </div>
 
@@ -142,7 +142,7 @@
         <label class="col-sm-3 control-label">CONFIRM PASSWORD:</label>
         <div class="col-sm-12">
           <input type="password" id="confirmpassword" name="confirmpassword" placeholder="CONFIRM YOUR PASSWORD"
-            [(ngModel)]=confirmpass class="form-control" required>
+            [(ngModel)]=confirmpass class="form-control"(keypress)="checkPassword($event)" required>
         </div>
         <p style="color:red;position: relative;left:1.2%;">{{array['password']}} </p>
       </div>
@@ -155,7 +155,7 @@
           IS TRUE
           TO THE BEST OF MY KNOWLEDGE<br>
         </div>
-        <p style="color:red;position: relative;left:1.2%;">{{array['password']}} </p>
+        <p style="color:red;position: relative;left:1.2%;">{{array['msg']}} </p>
       </div>
 
       <!--SUBMIT-->

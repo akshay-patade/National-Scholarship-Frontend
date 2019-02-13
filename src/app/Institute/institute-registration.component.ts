@@ -14,11 +14,15 @@ export class InstituteRegistrationComponent {
     response: string;
     comppass: string;
     address: string;
+<<<<<<< HEAD
     confirmpass: string;
+=======
+>>>>>>> 7bec09a76a982f29d6ec3e0f8217429104741b4e
     array = { password: "", msg: "" };
     constructor(public is: InstituteService) {
 
 
+<<<<<<< HEAD
     }
 
 
@@ -44,10 +48,41 @@ export class InstituteRegistrationComponent {
                     this.response = data['status']
                 }
             );
+=======
+    }
+
+    keyPress(event: any) {
+        const pattern = /[0-9\+\-\ ]/;
+        let inputChar = String.fromCharCode(event.charCode);
+        if (event.keyCode != 8 && !pattern.test(inputChar)) {
+            event.preventDefault();
+        }
+    }
+    check(instituteForm) {
+
+        let confirm = false;
+
+        if (this.comppass != this.institutes.password) {
+            confirm = false;
+            this.array['password'] = "Pasword does not match";
+        }
+        if (confirm) {
+
+            this.is.sendToServer(this.institutes).subscribe(
+                data => {
+                    this.response = data['status']
+                }
+            );
+
+        }
+>>>>>>> 7bec09a76a982f29d6ec3e0f8217429104741b4e
 
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7bec09a76a982f29d6ec3e0f8217429104741b4e
     }
 
 }
