@@ -1,9 +1,6 @@
 import { Component } from '@angular/core'
 import { Student } from './student';
 import { StudentService } from './student-service';
-import { checkAndUpdateBinding } from '@angular/core/src/view/util';
-import { IfStmt } from '@angular/compiler';
-
 
 @Component({
     selector: 'student-registration',
@@ -18,6 +15,16 @@ export class StudentRegistrationComponent {
     array = { password: "", msg: "" };
 
     constructor(public ss: StudentService) {
+
+    }
+
+    checkPassword(event:any) {
+        if (this.confirmpass != this.students.password) {
+            this.array['password'] = "Pasword does not match";
+        }
+        else {
+            this.array['password'] = "Password match";
+        }
 
     }
 

@@ -13,7 +13,7 @@
                 <br><br>
 
 
-               
+
                 <label for="name"> <b> Institute Name * </b> </label>
                 <input type="text" [(ngModel)]="institutes.instituteName" name="InstituteName" pattern="[a-zA-Z]*"
                     placeholder="Enter your institue name" title="Enter only alphabets" autofocus required /><br><br>
@@ -29,7 +29,8 @@
                 <br><br>
                 <!--District of Institute-->
                 <label for="district"><b>District *</b></label>
-                <select id="DistrictList" [(ngModel)]="institutes.districtOfInstitute" [ngModelOptions]="{standalone: true}">
+                <select id="DistrictList" [(ngModel)]="institutes.districtOfInstitute"
+                    [ngModelOptions]="{standalone: true}">
                     <option value="pune">Pune</option>
                     <option value="mumbai">Mumbai</option>
                 </select>
@@ -49,7 +50,8 @@
 
                 <!--Institute Location-->
                 <label for="location"><b>Location *: </b></label>
-                <select id="locationOfInstitute" [(ngModel)]="institutes.location" [ngModelOptions]="{standalone: true}">
+                <select id="locationOfInstitute" [(ngModel)]="institutes.location"
+                    [ngModelOptions]="{standalone: true}">
                     <option value="1">--select--</option>
                     <option value="2">Urban</option>
                     <option value="3">Rural</option>
@@ -58,7 +60,8 @@
 
                 <!--Type of Institute-->
                 <label for="instituteType"><b>Type of Institute *: </b></label>
-                <select id="TypeOfInstitute" [(ngModel)]="institutes.instituteType" [ngModelOptions]="{standalone: true}">
+                <select id="TypeOfInstitute" [(ngModel)]="institutes.instituteType"
+                    [ngModelOptions]="{standalone: true}">
                     <option value="1">--select--</option>
                     <option value="2">Autonomous</option>
 
@@ -67,7 +70,8 @@
 
                 <!--State to which the university is affiliated-->
                 <label for="affiliatedUniversityState"><b>Affiliated University State *:</b></label>
-                <select id="AffiliatedUniversityStateList" [(ngModel)]="institutes.affiliatedUniversityState" [ngModelOptions]="{standalone: true}">
+                <select id="AffiliatedUniversityStateList" [(ngModel)]="institutes.affiliatedUniversityState"
+                    [ngModelOptions]="{standalone: true}">
                     <option value="1">--select--</option>
                     <option value="2">Maharashtra</option>
                     <option value="3">Punjab</option>
@@ -85,7 +89,8 @@
 
                 <!--Starting year of admission of the Institute-->
                 <label for="state"><b>State *:</b></label>
-                <select id="StateList" [(ngModel)]="institutes.admissionStartYear" [ngModelOptions]="{standalone: true}" (keypress)="keyPress($event)">
+                <select id="StateList" [(ngModel)]="institutes.admissionStartYear" [ngModelOptions]="{standalone: true}"
+                    (keypress)="keyPress($event)">
                     <option value="1">--select--</option>
                 </select>
                 <br><br>
@@ -145,7 +150,7 @@
                 <!--State of Institute-->
                 <label for="state"><b>State *:</b></label>
                 <select id="StateList" [(ngModel)]="institutes.instituteState" [ngModelOptions]="{standalone: true}">
-                    
+
                     <option value="2">Maharashtra</option>
                     <option value="3">Punjab</option>
                     <option value="4">Madhya-Pradesh</option>
@@ -154,8 +159,9 @@
                 <br><br>
                 <!--District of Institute-->
                 <label for="district"><b>District* :</b></label>
-                <select id="DistrictList" [(ngModel)]="institutes.instituteDistrict" [ngModelOptions]="{standalone: true}">
-                   
+                <select id="DistrictList" [(ngModel)]="institutes.instituteDistrict"
+                    [ngModelOptions]="{standalone: true}">
+
                     <option value="pune">Pune</option>
                     <option value="mumbai">Mumbai</option>
                 </select>
