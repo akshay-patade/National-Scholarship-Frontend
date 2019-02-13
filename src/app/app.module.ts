@@ -10,13 +10,16 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StudentService } from './Student/student-service';
 import { InstituteService } from './Institute/institute-service';
 import { InstituteLoginComponent } from './Institute/institute-login.component';
+import { ScholarshipApplicationService } from './Scholarship-Application-Form/scholarship-application.service';
+import { ScholarshipApplicationComponent } from './Scholarship-Application-Form/scholarship-application.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InstituteRegistrationComponent,
     StudentRegistrationComponent,
-    InstituteLoginComponent
+    InstituteLoginComponent,
+    ScholarshipApplicationComponent
 
   ],
   imports: [
@@ -25,7 +28,7 @@ import { InstituteLoginComponent } from './Institute/institute-login.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [HttpClient,StudentService,InstituteService],
+  providers: [HttpClient,StudentService,InstituteService,ScholarshipApplicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

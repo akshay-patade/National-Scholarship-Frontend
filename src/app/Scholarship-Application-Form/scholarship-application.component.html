@@ -1,0 +1,599 @@
+<html>
+
+<body style="background:grey ">
+  <div class="container">
+    <form ngNativeValidate class="form-horizontal" #regForm="ngForm">
+      <!--Heading-->
+      <h2 style="text-align:center;">SCHOLARSHIP APPLICATION FORM</h2>
+
+      <h3 style="text-align:center;">BASIC DETAILS</h3>
+
+      <!--Aadhar No.-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Aadhar No</label>
+        <div class="col-sm-12">
+          <input type="text" id="adharNo" name="adharNo" [(ngModel)]="scholarships.adharNo"
+            placeholder="Enter your adharNo number" class="form-control" required minlength=12 maxlength=12
+            (keypress)="keyPress($event)">
+        </div>
+      </div>
+
+      <!--Religion-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>Religion</label>
+        <div class="col-sm-12">
+          <select name="religionList" [(ngModel)]="scholarships.religion">
+            <option value=""></option>
+            <option value="OBC">Obc</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="Open">Open</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!--Community Category-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Community Category:</label>
+        <div class="col-sm-12">
+          <input type="text" pattern="[a-zA-Z]*" id="communityCategory" name="communityCategory"
+            [(ngModel)]="scholarships.communityCategory" placeholder="Enter your community category" class="form-control"
+            autofocus required>
+        </div>
+      </div>
+
+
+      <!--Father Name -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Father Name:</label>
+        <div class="col-sm-12">
+          <input type="text" id="fatherName" name="fatherName" class="form-control" [(ngModel)]="scholarships.fatherName"
+            required>
+        </div>
+      </div>
+
+      <!--Mother Name -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Mother Name:</label>
+        <div class="col-sm-12">
+          <input type="text" id="motherName" name="motherName" class="form-control" [(ngModel)]="scholarships.motherName"
+            required>
+        </div>
+      </div>
+
+      <!--Family Annual Income-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Family Annual Income:</label>
+        <div class="col-sm-12">
+          <input type="text" id="familyAnnualIncome" name="familyAnnualIncome"
+            [(ngModel)]="scholarships.familyAnnualIncome" placeholder="Enter your family annual income"
+            class="form-control" required (keypress)="keyPress($event)">
+        </div>
+      </div>
+
+      <h3>ACADEMIC DETAILS</h3>
+
+      <!--Institute Name-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Institute Name</label>
+        <div class="col-sm-12">
+          <select name="instituteName" [(ngModel)]="scholarships.instituteName" required>
+            <option value=""></option>
+            <option value="SINHAGAD INSTITUTE">SINHAGAD INSTITUTE</option>
+            <option value="DY PATIL INSTITUTE">DY PATIL INSTITUTE</option>
+          </select>
+        </div>
+      </div>
+
+
+      <!--Present Class/Course-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Present Course/Course:</label>
+        <div class="col-sm-12">
+          <input type="text" id="presentCourse" name="presentCourse" [(ngModel)]="scholarships.presentCourse"
+            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*" required>
+        </div>
+      </div>
+
+      <!--Present Class/Course Year -->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Present Class/Course Year:</label>
+        <div class="col-sm-12">
+          <input type="text" id="presentClassYear" name="presentClassYear" [(ngModel)]="scholarships.presentClassYear"
+            minlength=4 maxlength=4 placeholder="Enter your present course year" class="form-control"
+            (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--Mode of Study-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>Mode of Study:</label>
+        <div class="col-sm-12">
+          <select name="modeOfStudyList" [(ngModel)]="scholarships.modeOfStudy">
+            <option value=""></option>
+            <option value="FullTime">FullTime</option>
+            <option value="PartTime">Part Time</option>
+            <option value="Corespondance">Other</option>
+
+          </select>
+        </div>
+      </div>
+
+      <!--Class Start Date -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Class Start Date:</label>
+        <div class="col-sm-12">
+          <input type="DATE" id="clsStartDate" name="classStartDate" class="form-control"
+            placeholder="Enter your class start date" [(ngModel)]="scholarships.classStartDate" required>
+        </div>
+      </div>
+
+      <!--University/Board Name-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">University/Board Name:</label>
+        <div class="col-sm-12">
+          <input type="text" id="universityBoardName" name="universityBoardName"
+            [(ngModel)]="scholarships.universityBoardName" placeholder="Enter your University/Board Name"
+            class="form-control" pattern="[a-zA-Z]*" required>
+        </div>
+      </div>
+
+      <!--Previous Class/Course -->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Previous Class/Course:</label>
+        <div class="col-sm-12">
+          <input type="text" id="previousClassCourse" name="previousClassCourse"
+            [(ngModel)]="scholarships.previousClassCourse" placeholder="Enter your previous course" pattern="[a-zA-Z]*"
+            class="form-control" required>
+        </div>
+      </div>
+
+      <!--Previous Passing Year -->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Previous Passing Year:</label>
+        <div class="col-sm-12">
+          <input type="text" id="previousPassingYear" name="previousPassingYear"
+            [(ngModel)]="scholarships.previousPassingYear" minlength=4 maxlength=4
+            placeholder="Enter your previous course passing year" class="form-control" (keypress)="keyPress($event)"
+            required>
+        </div>
+      </div>
+
+      <!--Previous Class % -->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Previous Class %:</label>
+        <div class="col-sm-12">
+          <input type="text" id="previousClass%" name="previousClass%" [(ngModel)]="scholarships.previousClassPercent"
+            placeholder="Enter your previous class %" class="form-control" (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <h3>10TH CLASS</h3>
+
+      <!--Roll No -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Roll No:</label>
+        <div class="col-sm-12">
+          <input type="text" id="rollNo" name="rollNo" [(ngModel)]="scholarships.tenthRollNo"
+            placeholder="Enter your 10th class roll No " class="form-control">
+        </div>
+      </div>
+
+      <!--Board Name-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Board Name:</label>
+        <div class="col-sm-12">
+          <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.tenthBoardName"
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" required>
+        </div>
+      </div>
+
+      <!--Passing Year-->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Passing Year:</label>
+        <div class="col-sm-12">
+          <input type="text" id="passingYear" name="passingYear" [(ngModel)]="scholarships.tenthPassingYear" minlength=4
+            maxlength=4 placeholder="Enter your 10th class passing year" class="form-control"
+            (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--% Obtained in 10th -->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">% Obtained:</label>
+        <div class="col-sm-12">
+          <input type="text" id="%Obtained" name="%Obtained" [(ngModel)]="scholarships.tenthPercentObtained"
+            placeholder="Enter your 10th Class %" class="form-control" required>
+        </div>
+      </div>
+
+
+      <h3>12TH CLASS</h3>
+
+      <!--Roll No -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Roll No:</label>
+        <div class="col-sm-12">
+          <input type="text" id="rollNo" name="rollNo" [(ngModel)]="scholarships.twelvthrollNo"
+            placeholder="Enter your 12th class roll No " class="form-control">
+        </div>
+      </div>
+
+      <!--Board Name-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Board Name:</label>
+        <div class="col-sm-12">
+          <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.twelvthBoardName"
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" required>
+        </div>
+      </div>
+
+      <!--Passing Year-->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Passing Year:</label>
+        <div class="col-sm-12">
+          <input type="text" id="passingYear" name="passingYear" [(ngModel)]="scholarships.twelvthPassingYear"
+            minlength=4 maxlength=4 placeholder="Enter your 12th class passing year" class="form-control"
+            (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--% Obtained in 10th -->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">% Obtained:</label>
+        <div class="col-sm-12">
+          <input type="text" id="%Obtained" name="%Obtained" [(ngModel)]="scholarships.twelvthpercentObtained"
+            placeholder="Enter your 12th Class %" class="form-control" required>
+        </div>
+      </div>
+
+      <h3>Fee Details</h3>
+
+      <!--Admission Fee -->
+      <div class="form-group">
+        <label for="admissionFee" class="col-sm-3 control-label">Admission Fee:</label>
+        <div class="col-sm-12">
+          <input type="text" id="admissionFee" name="admissionFee" [(ngModel)]="scholarships.admissionFee"
+            placeholder="Enter your admission fee" class="form-control" (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--Tution Fee -->
+      <div class="form-group">
+        <label for="tutionFee" class="col-sm-3 control-label">Tution Fee:</label>
+        <div class="col-sm-12">
+          <input type="text" id="tutionFee" name="tutionFee" [(ngModel)]="scholarships.tutionFee"
+            placeholder="Enter your tution fee" class="form-control" (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--Other Fee -->
+
+      <div class="form-group">
+        <label for="otherFee" class="col-sm-3 control-label">Other Fee:</label>
+        <div class="col-sm-12">
+          <input type="text" id="otherFee" name="otherFee" [(ngModel)]="scholarships.otherFee"
+            placeholder="Enter other fee if any" class="form-control" (keypress)="keyPress($event)">
+        </div>
+      </div>
+
+      <h3>OTHER PERSONAL DETAILS</h3>
+
+      <!--Is Disabled-->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Is Disabled:</label>
+        <div class="col-sm-12">
+          <select name="disabilityList" [(ngModel)]="scholarships.disability">
+            <option value=""></option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+
+          </select>
+        </div>
+      </div>
+
+      <!--Type of Disability -->
+      <div class="form-group">
+        <label for="disabilityType" class="col-sm-3 control-label">Type of Disability:</label>
+        <div class="col-sm-12">
+          <input type="text" id="disabilityType" name="disabilityType" [(ngModel)]="scholarships.disabilityType"
+            placeholder="Enter disability type" class="form-control" required>
+        </div>
+      </div>
+
+      <!--Percentage of Disability-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">% Of Disability:</label>
+        <div class="col-sm-12">
+          <input type="text" id="%OfDisability" name="%OfDisability" [(ngModel)]="scholarships.percentOfDisability"
+            placeholder="Enter your disability %" class="form-control" required>
+        </div>
+      </div>
+
+      <!--Marital Status-->
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Marital Status:</label>
+        <div class="col-sm-12">
+          <select name="maritalStatusList" [(ngModel)]="scholarships.maritalStatus">
+            <option value=""></option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="single">Single</option>
+          </select>
+        </div>
+      </div>
+
+
+      <!--Parents Profession -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Parents Profession:</label>
+        <div class="col-sm-12">
+          <input type="text" id="parentsProfession" pattern="[a-zA-Z]*" name="parentsProfession"
+            placeholder="Enter your parent's profession" [(ngModel)]="scholarships.parentsProfession"
+            class="form-control" required>
+        </div>
+      </div>
+
+      <h3>CONTACT DETAILS</h3>
+
+      <!--State-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label">STATE:</label>
+        <div class="col-sm-12">
+          <select name="stateslist" [(ngModel)]="scholarships.state" required>
+            <option value=""></option>
+            <option value="andaman">ANDAMAN AND NICOBAR</option>
+            <option value="maharashtra">MAHARASHTRA</option>
+          </select>
+        </div>
+      </div>
+
+      <!--DISTRICT-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>DISTRICT:</label>
+        <div class="col-sm-12">
+          <select name="stateslist" [(ngModel)]="scholarships.district">
+            <option value=""></option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+          </select>
+        </div>
+      </div>
+
+      <!--Block/Taluka-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>Block/Taluka:</label>
+        <div class="col-sm-12">
+          <select name="stateslist" [(ngModel)]="scholarships.blockOrTaluka">
+            <option value=""></option>
+            <option value="Haveli">Mumbai</option>
+          </select>
+        </div>
+      </div>
+
+      <!--House No-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>House No:</label>
+        <div class="col-sm-12">
+          <input type="text" id="houseNo" name="houseNo" [(ngModel)]="scholarships.houseNo" placeholder="Enter House No"
+            class="form-control" (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--Street No-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>Street No:</label>
+        <div class="col-sm-12">
+          <input type="text" id="streetNo" name="streetNo" [(ngModel)]="scholarships.streetNo"
+            placeholder="Enter Street No" class="form-control" (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+
+      <!--Pincode-->
+      <div class="form-group">
+        <label class="col-sm-3 control-label" required>Pincode:</label>
+        <div class="col-sm-12">
+          <input type="text" id="pinCode" name="pinCode" [(ngModel)]="scholarships.pinCode" placeholder="Enter Pincode"
+            class="form-control" minlength="6" maxlength="6" (keypress)="keyPress($event)" required>
+        </div>
+      </div>
+      <br>
+    
+
+
+      <!--Choose scheme-->
+      <h3>CHOOSE SCHEME APPLYING FOR:</h3>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <select name="schemelist" [(ngModel)]="scholarships.scheme">
+            <option value=""></option>
+            <option value="scholarshipForGirls">Scholarship for Girls</option>
+            <option value="scholarshipBasedOnMerit">Scholarship based on Merit</option>
+          </select>
+        </div>
+      </div>
+      <br>
+
+      <!--document upload-->
+      <h3>DOCUMENT UPLOAD SECTION</h3>
+
+      <!--Domicile certificate-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-3">
+            DOMICILE CERTIFICATE:
+          </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+          </div>
+        </div>
+      </div>
+
+       <!-- STUDENT PHOTOGRAPH-->
+       <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+              STUDENT PHOTOGRAPH:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+          </div>
+        </div>
+
+         <!--INSTITUTE ID CARD:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                INSTITUTE ID CARD:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--CASTE/INCOME CERTIFICATE:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                CASTE/INCOME CERTIFICATE:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--CASTE/INCOME CERTIFICATE:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                CASTE/INCOME CERTIFICATE:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--PREVIOUS YEAR MARKSHEET:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                PREVIOUS YEAR MARKSHEET:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--FEE RECEIPT OF CURRENT YEAR:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                FEE RECEIPT OF CURRENT YEAR:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--BANK PASSBOOK(FRONT PAGE):-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                BANK PASSBOOK(FRONT PAGE):
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--ADHAR CARD:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                ADHAR CARD:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <!--10TH CLASS MARKSHEET:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                10TH CLASS MARKSHEET:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+         <!--12TH CLASS MARKSHEET:-->
+      <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+                12TH CLASS MARKSHEET:
+            </div>
+            <div class="col-sm-3">
+              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            </div>
+  
+          </div>
+        </div>
+
+        <br>
+        <br>
+
+      <!--Agreement-->
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="checkbox" [(ngModel)]="checkBox" name="read" value="read"> ALL THE DETAILS FURNISHED BY ME ARE TRUE
+          TO THE BEST OF MY KNOWLEDGE IF ANY MISTAKES ARE FOUND THEN I MAY BE DISQUALIFIED FOR THE SCHOLARSHIP SCHEME
+          ANNOUNCED BY GOVERNMENT OF INDIA OR MY STATE GOVERNMENT.
+          <br>
+        </div>
+        <p style="color:red;position: relative;left:1.2%;">{{array['msg']}} </p>
+      </div>
+      <br>
+      <br>
+
+      <!--SUBMIT-->
+      <div class="form-group">
+        <input type="submit" (click)="check(regform)" class="btn btn-primary btn-lg btn-block">
+        <button type="button" class="btn btn-danger btn-block">Reset</button>
+      </div>
+
+
+    </form>
+  </div>
+</body>
+
+</html>
