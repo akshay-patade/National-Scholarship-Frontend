@@ -23,7 +23,6 @@
         <label class="col-sm-3 control-label" required>Religion</label>
         <div class="col-sm-12">
           <select name="religionList" [(ngModel)]="scholarships.religion">
-            <option value=""></option>
             <option value="OBC">Obc</option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
@@ -38,8 +37,8 @@
         <label class="col-sm-3 control-label">Community Category:</label>
         <div class="col-sm-12">
           <input type="text" pattern="[a-zA-Z]*" id="communityCategory" name="communityCategory"
-            [(ngModel)]="scholarships.communityCategory" placeholder="Enter your community category" class="form-control"
-            autofocus required>
+            [(ngModel)]="scholarships.communityCategory" title="enter only alphabets"
+            placeholder="Enter your community category" class="form-control" autofocus required>
         </div>
       </div>
 
@@ -48,8 +47,8 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Father Name:</label>
         <div class="col-sm-12">
-          <input type="text" id="fatherName" name="fatherName" class="form-control" [(ngModel)]="scholarships.fatherName"
-            required>
+          <input type="text" id="fatherName" pattern="[a-zA-Z]*" title="enter only alphabets" name="fatherName"
+            class="form-control" [(ngModel)]="scholarships.fatherName" required>
         </div>
       </div>
 
@@ -57,8 +56,8 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Mother Name:</label>
         <div class="col-sm-12">
-          <input type="text" id="motherName" name="motherName" class="form-control" [(ngModel)]="scholarships.motherName"
-            required>
+          <input type="text" id="motherName" pattern="[a-zA-Z]*" title="enter only alphabets" name="motherName"
+            class="form-control" [(ngModel)]="scholarships.motherName" required>
         </div>
       </div>
 
@@ -79,7 +78,6 @@
         <label class="col-sm-3 control-label">Institute Name</label>
         <div class="col-sm-12">
           <select name="instituteName" [(ngModel)]="scholarships.instituteName" required>
-            <option value=""></option>
             <option value="SINHAGAD INSTITUTE">SINHAGAD INSTITUTE</option>
             <option value="DY PATIL INSTITUTE">DY PATIL INSTITUTE</option>
           </select>
@@ -92,7 +90,8 @@
         <label class="col-sm-3 control-label">Present Course/Course:</label>
         <div class="col-sm-12">
           <input type="text" id="presentCourse" name="presentCourse" [(ngModel)]="scholarships.presentCourse"
-            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*" required>
+            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*" title="enter alphabets only"
+            required>
         </div>
       </div>
 
@@ -112,7 +111,6 @@
         <label class="col-sm-3 control-label" required>Mode of Study:</label>
         <div class="col-sm-12">
           <select name="modeOfStudyList" [(ngModel)]="scholarships.modeOfStudy">
-            <option value=""></option>
             <option value="FullTime">FullTime</option>
             <option value="PartTime">Part Time</option>
             <option value="Corespondance">Other</option>
@@ -126,7 +124,8 @@
         <label class="col-sm-3 control-label">Class Start Date:</label>
         <div class="col-sm-12">
           <input type="DATE" id="clsStartDate" name="classStartDate" class="form-control"
-            placeholder="Enter your class start date" [(ngModel)]="scholarships.classStartDate" required>
+            placeholder="Enter your class start date" [(ngModel)]="scholarships.classStartDate"
+            (keypress)="keyPress($event)" required>
         </div>
       </div>
 
@@ -136,7 +135,7 @@
         <div class="col-sm-12">
           <input type="text" id="universityBoardName" name="universityBoardName"
             [(ngModel)]="scholarships.universityBoardName" placeholder="Enter your University/Board Name"
-            class="form-control" pattern="[a-zA-Z]*" required>
+            class="form-control" pattern="[a-zA-Z]*" title="enter only alphabets" required>
         </div>
       </div>
 
@@ -189,7 +188,8 @@
         <label class="col-sm-3 control-label">Board Name:</label>
         <div class="col-sm-12">
           <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.tenthBoardName"
-            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" required>
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" title="enter alphabets only"
+            required>
         </div>
       </div>
 
@@ -231,7 +231,8 @@
         <label class="col-sm-3 control-label">Board Name:</label>
         <div class="col-sm-12">
           <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.twelvthBoardName"
-            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" required>
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" title="enter alphabets only"
+            required>
         </div>
       </div>
 
@@ -294,7 +295,6 @@
         <label class="col-sm-3 control-label">Is Disabled:</label>
         <div class="col-sm-12">
           <select name="disabilityList" [(ngModel)]="scholarships.disability">
-            <option value=""></option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
 
@@ -326,7 +326,6 @@
         <label class="col-sm-3 control-label">Marital Status:</label>
         <div class="col-sm-12">
           <select name="maritalStatusList" [(ngModel)]="scholarships.maritalStatus">
-            <option value=""></option>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
             <option value="single">Single</option>
@@ -339,9 +338,9 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Parents Profession:</label>
         <div class="col-sm-12">
-          <input type="text" id="parentsProfession" pattern="[a-zA-Z]*" name="parentsProfession"
-            placeholder="Enter your parent's profession" [(ngModel)]="scholarships.parentsProfession"
-            class="form-control" required>
+          <input type="text" id="parentsProfession" pattern="[a-zA-Z]*" title="enter alphabets only"
+            name="parentsProfession" placeholder="Enter your parent's profession"
+            [(ngModel)]="scholarships.parentsProfession" class="form-control" required>
         </div>
       </div>
 
@@ -352,7 +351,6 @@
         <label class="col-sm-3 control-label">STATE:</label>
         <div class="col-sm-12">
           <select name="stateslist" [(ngModel)]="scholarships.state" required>
-            <option value=""></option>
             <option value="andaman">ANDAMAN AND NICOBAR</option>
             <option value="maharashtra">MAHARASHTRA</option>
           </select>
@@ -364,7 +362,6 @@
         <label class="col-sm-3 control-label" required>DISTRICT:</label>
         <div class="col-sm-12">
           <select name="stateslist" [(ngModel)]="scholarships.district">
-            <option value=""></option>
             <option value="Mumbai">Mumbai</option>
             <option value="Pune">Pune</option>
           </select>
@@ -409,7 +406,7 @@
         </div>
       </div>
       <br>
-    
+
 
 
       <!--Choose scheme-->
@@ -435,147 +432,148 @@
             DOMICILE CERTIFICATE:
           </div>
           <div class="col-sm-3">
-            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
           </div>
         </div>
       </div>
 
-       <!-- STUDENT PHOTOGRAPH-->
-       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-              STUDENT PHOTOGRAPH:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-          </div>
-        </div>
-
-         <!--INSTITUTE ID CARD:-->
+      <!-- STUDENT PHOTOGRAPH-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                INSTITUTE ID CARD:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            STUDENT PHOTOGRAPH:
+          </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
           </div>
         </div>
+      </div>
 
-        <!--CASTE/INCOME CERTIFICATE:-->
+      <!--INSTITUTE ID CARD:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                CASTE/INCOME CERTIFICATE:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            INSTITUTE ID CARD:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <!--CASTE/INCOME CERTIFICATE:-->
+        </div>
+      </div>
+
+      <!--CASTE/INCOME CERTIFICATE:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                CASTE/INCOME CERTIFICATE:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            CASTE/INCOME CERTIFICATE:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <!--PREVIOUS YEAR MARKSHEET:-->
+        </div>
+      </div>
+
+      <!--CASTE/INCOME CERTIFICATE:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                PREVIOUS YEAR MARKSHEET:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            CASTE/INCOME CERTIFICATE:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <!--FEE RECEIPT OF CURRENT YEAR:-->
+        </div>
+      </div>
+
+      <!--PREVIOUS YEAR MARKSHEET:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                FEE RECEIPT OF CURRENT YEAR:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            PREVIOUS YEAR MARKSHEET:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <!--BANK PASSBOOK(FRONT PAGE):-->
+        </div>
+      </div>
+
+      <!--FEE RECEIPT OF CURRENT YEAR:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                BANK PASSBOOK(FRONT PAGE):
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            FEE RECEIPT OF CURRENT YEAR:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <!--ADHAR CARD:-->
+        </div>
+      </div>
+
+      <!--BANK PASSBOOK(FRONT PAGE):-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                ADHAR CARD:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            BANK PASSBOOK(FRONT PAGE):
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <!--10TH CLASS MARKSHEET:-->
+        </div>
+      </div>
+
+      <!--ADHAR CARD:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                10TH CLASS MARKSHEET:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            ADHAR CARD:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-         <!--12TH CLASS MARKSHEET:-->
+        </div>
+      </div>
+
+      <!--10TH CLASS MARKSHEET:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                12TH CLASS MARKSHEET:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            10TH CLASS MARKSHEET:
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
 
-        <br>
-        <br>
+        </div>
+      </div>
+
+      <!--12TH CLASS MARKSHEET:-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-3">
+            12TH CLASS MARKSHEET:
+          </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">
+          </div>
+
+        </div>
+      </div>
+
+      <br>
+      <br>
 
       <!--Agreement-->
       <div class="form-group">
         <div class="col-sm-12">
-          <input type="checkbox" [(ngModel)]="checkBox" name="read" value="read"> ALL THE DETAILS FURNISHED BY ME ARE TRUE
+          <input type="checkbox" [(ngModel)]="checkBox" name="read" value="read"> ALL THE DETAILS FURNISHED BY ME ARE
+          TRUE
           TO THE BEST OF MY KNOWLEDGE IF ANY MISTAKES ARE FOUND THEN I MAY BE DISQUALIFIED FOR THE SCHOLARSHIP SCHEME
           ANNOUNCED BY GOVERNMENT OF INDIA OR MY STATE GOVERNMENT.
           <br>

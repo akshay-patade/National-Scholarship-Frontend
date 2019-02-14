@@ -1,2 +1,17 @@
-
-
+<body style="background-color: rgb(255, 196, 245);">
+        <form>
+            <div class="container">
+                <h2>Institute Login</h2>
+                <label for="uname"><b>Username:</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="user.Username" required><br><br>
+    
+                <label for="psw"><b>Password:</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="user.Password" required><br><br>
+                <span class="psw">Forgot<a href="#">password?</a></span><br>
+                <span class="psw">Forgot<a href="#">username?</a></span><br><br>
+                <span class="psw"><a href="#">New Registration?</a></span><br><br>
+                <button type="submit" (click)="verify()">Login</button>
+    
+            </div>
+        </form>
+    </body>

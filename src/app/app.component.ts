@@ -4,15 +4,15 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <!--The content below is only a placeholder and can be replaced.-->
-<<<<<<< HEAD
+    <student-registration>
+    </student-registration>
 
     <institute-registration>
     </institute-registration>
-=======
-    <home-page>
-    </home-page>
 
->>>>>>> 7bec09a76a982f29d6ec3e0f8217429104741b4e
+
+    <scholarship-application>
+    </scholarship-application> 
   `,
   styles: []
 })
