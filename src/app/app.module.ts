@@ -9,10 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StudentService } from './Student/student-service';
 import { InstituteService } from './Institute/institute-service';
-import { InstituteLoginComponent } from './Institute/institute-login.component';
-import { HomePageComponent } from './Homepage/homepage.component';
-import { ScholarshipApplicationComponent } from './Scholarship-Application-Form/scholarship-application.component';
+
 import { ScholarshipApplicationService } from './Scholarship-Application-Form/scholarship-application.service';
+import { ScholarshipApplicationComponent } from './Scholarship-Application-Form/scholarship-application.component';
+
+import { HomePageComponent } from './Homepage/homepage.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ScholarshipApplicationService } from './Scholarship-Application-Form/sc
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [HttpClient,StudentService,ScholarshipApplicationService,InstituteService],
+
+  providers: [HttpClient,StudentService,InstituteService,ScholarshipApplicationService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

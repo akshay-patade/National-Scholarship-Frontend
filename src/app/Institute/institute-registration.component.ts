@@ -14,13 +14,10 @@ export class InstituteRegistrationComponent {
     response: string;
     comppass: string;
     address: string;
-    confirmpass: string;
     array = { password: "", msg: "" };
     constructor(public is: InstituteService) {
-
-
+        
     }
-
 
     keyPress(event: any) {
         const pattern = /[0-9\+\-\ ]/;

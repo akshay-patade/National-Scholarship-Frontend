@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <style>
     * {
@@ -38,11 +37,6 @@
       color: black;
     }
 
-    .header a.active {
-      background-color: dodgerblue;
-      color: white;
-    }
-
     .header-right {
       float: right;
     }
@@ -75,25 +69,70 @@
   </div>
 
   <!--home page contents-->
+
   <div class="row">
+
+    <!--Latest updates-->
     <div class="col-md-4">
+      <h4 style="text-align:center;font-family:cursive;">Latest Updates</h4>
       <ul>
-        <li>
-          All the students who have completed their 10/12 and whose financial income is less can apply for the
-        </li>
+        <div style="color:green">
+          <p style="font-family:cursive;">Attention students</p>
+          <li style="font-family:cursive;">
+            All the students who have completed their 10<sup>th</sup>/12<sup>th</sup> and whose financial income is less
+            can apply for the
+            scholarship before 12<sup>th</sup> July 2019
+          </li>
+          <li style="font-family:cursive;">All the girls who have completed their 10<sup>th</sup>/12<sup>th</sup> can
+            apply for scholarship before
+            1<sup>st</sup>
+            August
+          </li>
+        </div>
+        <br />
+        <div style="color:red">
+          <p style="font-family:cursive;">Attention institutes</p>
+          <li style="font-family:cursive;">
+            Institutes can do the verififcation of schemes which are opne
+          </li>
+        </div>
       </ul>
     </div>
-    <div class="col-md-4">
+
+    <!--Description of Website-->
+    <div style class="col-md-4" style="font-family:cursive;">
+      <h4>Description</h4>
+      <p>National Scholarship portal is an education related portal. National Scholarship portal is a project developed
+        with the main aim of providing an easy and efficient way for applying and getting a scholarship for students in
+        need of it.</p>
+      <p>Students belonging to caste such as OBC,ST,NT etc can apply for this scholarship</p>
+      <p>Girls whose family income is less than 8 lakhs can apply for the scholarship </p>
+    </div>
+
+    <!--Student Login-->
+    <div class="col-md-4" style="font-family:cursive;" >
+      <h5 style="text-align: center">Student Login</h5>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">UID</label>
+        <div class="col-sm-12">
+          <input type="text" id="uid" name="uid" [(ngModel)]="uid" placeholder="Enter your Aadhar number"
+            class="form-control" autofocus required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-12">
+          <input type="password" id="uid" name="passwd" [(ngModel)]="passwd" placeholder="Enter your Password"
+            class="form-control" autofocus required>
+        </div>
+      </div>
+      <a href="">Forgot Pasword?</a><br />
+      <a href="">New User? Register here</a><br />
+      <a href="">Institue/State/Ministry Login</a>
 
     </div>
-    <div class="col-md-4">
-      ajdbajdadjandadjknadjajikbbadkzcubaiudgaiudgi
-    </div>
-
-
-  </div>
+ </div>
 
 </body>
-
-
 </html>
