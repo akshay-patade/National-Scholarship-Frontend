@@ -10,6 +10,7 @@ import { IfStmt, ConstantPool } from '@angular/compiler';
     templateUrl: './student-login.component.html',
 
 })
+<<<<<<< HEAD
 export class StudentLoginComponent {
     response: boolean;
 
@@ -47,4 +48,8 @@ export class StudentLoginComponent {
 
 
 
+=======
+
+export class StudentLoginComponent  {
+>>>>>>> 1ff9260157ea911f2c9037bdd195659f7f24e101
 

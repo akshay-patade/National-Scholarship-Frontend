@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--Student Login-->
 <form ngNativeValidate class="form-horizontal" #regForm="ngForm" (ngSubmit)="add(regform)">
   <h5 style="text-align: center">Student Login</h5>
@@ -7,6 +8,36 @@
     <div class="col-sm-12">
       <input type="text" id="adharNo" name="adharNo" [(ngModel)]="students.adharNo" placeholder="Enter your Aadhar number"
         class="form-control" minlength=12 maxlength=12  (keypress)="keyPress($event)" autofocus required>
+=======
+<<<<<<< HEAD
+<body style="background-color: rgb(255, 196, 245);">
+        <form>
+            <div class="container">
+                <h2>Institute Login</h2>
+                <label for="uname"><b>Username:</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="user.Username" required><br><br>
+    
+                <label for="psw"><b>Password:</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="user.Password" required><br><br>
+                <span class="psw">Forgot<a href="#">password?</a></span><br>
+                <span class="psw">Forgot<a href="#">username?</a></span><br><br>
+                <span class="psw"><a href="#">New Registration?</a></span><br><br>
+                <button type="submit" (click)="verify()">Login</button>
+    
+            </div>
+        </form>
+    </body>
+=======
+ <!--Student Login-->
+ <div class="col-md-4" style="font-family:cursive;" >
+    <h5 style="text-align: center">Student Login</h5>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">UID</label>
+      <div class="col-sm-12">
+        <input type="text" id="uid" name="uid" [(ngModel)]="uid" placeholder="Enter your Aadhar number"
+          class="form-control" autofocus required>
+      </div>
+>>>>>>> 1ff9260157ea911f2c9037bdd195659f7f24e101
     </div>
   </div>
 
@@ -34,4 +65,8 @@
     </div>
   </div>
 
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> 42f3d536271e3f01627559794dc59ddd3953a5c8
+>>>>>>> 1ff9260157ea911f2c9037bdd195659f7f24e101

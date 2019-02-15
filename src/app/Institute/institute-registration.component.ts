@@ -16,10 +16,8 @@ export class InstituteRegistrationComponent {
     address: string;
     array = { password: "", msg: "" };
     constructor(public is: InstituteService) {
-
-
+        
     }
-
 
     keyPress(event: any) {
         const pattern = /[0-9\+\-\ ]/;
@@ -43,9 +41,8 @@ export class InstituteRegistrationComponent {
                     this.response = data['status']
                 }
             );
-
         }
-
     }
-
 }
+
+
