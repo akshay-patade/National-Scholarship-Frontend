@@ -1,16 +1,16 @@
 <html>
 
-<body style="background:grey ">
+<body style="background:cadetblue ">
   <div class="container">
-    <form ngNativeValidate class="form-horizontal" #regForm="ngForm" (ngSubmit)="add(regform)">
+    <form ngNativeValidate class="form-horizontal" #regForm="ngForm" (ngSubmit)="check(regform)">
       <!--Heading-->
       <h2 style="text-align:center;">FRESH STUDENT REGISTRATION FORM</h2>
 
       <!--State of domicile-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">STATE OF DOMICILE</label>
+        <label class="col-sm-3 control-label">STATE OF DOMICILE <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="stateslist" [(ngModel)]="students.stateOfDomicile" required>
+          <select name="stateslist" [(ngModel)]="students.stateOfDomicile" autofocus required>
             <option value="andaman">ANDAMAN AND NICOBAR</option>
             <option value="maharashtra">MAHARASHTRA</option>
           </select>
@@ -19,37 +19,38 @@
 
       <!--DISTRICT-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>DISTRICT</label>
+        <label class="col-sm-3 control-label" required>DISTRICT <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="stateslist" [(ngModel)]="students.district">
+          <select name="stateslist" [(ngModel)]="students.district" autofocus required>
             <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
           </select>
         </div>
       </div>
 
       <!--Name -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">NAME:(AS PER YOUR MARKSHEET)</label>
+        <label class="col-sm-3 control-label">NAME:(AS PER YOUR MARKSHEET) <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" pattern="[a-zA-Z]*" id="name" name="name" [(ngModel)]="students.name"
-            placeholder="Enter your name" class="form-control" autofocus required>
+          <input type="text"  id="name" name="name" [(ngModel)]="students.name"
+            placeholder="Enter your name" title="enter only alphabets"  maxlength="90" class="form-control" autofocus required>
         </div>
       </div>
 
 
       <!--Date of birth (DOB) -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">DOB:</label>
+        <label class="col-sm-3 control-label">DOB: <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="DATE" id="date" name="date" class="form-control" [(ngModel)]=students.dob required>
+          <input type="DATE" id="date" name="date" class="form-control" [(ngModel)]=students.dob autofocus required>
         </div>
       </div>
 
       <!--GENDER-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">GENDER</label>
+        <label class="col-sm-3 control-label">GENDER <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="gender" [(ngModel)]="students.gender" required>
+          <select name="gender" [(ngModel)]="students.gender" autofocus required>
             <option value="male">MALE</option>
             <option value="female">FEMALE</option>
             <option value="female">OTHER</option>
@@ -60,88 +61,89 @@
 
       <!--Mobile Number -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">MOBILE NUMBER:</label>
+        <label class="col-sm-3 control-label">MOBILE NUMBER: <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="mobilenumber" name="mobilenumber" [(ngModel)]=students.mobileNo
             placeholder="Enter your mobile number" class="form-control" required minlength=10 maxlength=10
-            (keypress)="keyPress($event)">
+            (keypress)="keyPress($event)" autofocus required>
         </div>
       </div>
 
       <!--Email id -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">EMAIL:</label>
+        <label class="col-sm-3 control-label">EMAIL: <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="email" id="email" name="email" [(ngModel)]=students.email placeholder="Enter your email"
-            class="form-control" required>
+            class="form-control" autofocus required>
         </div>
       </div>
 
 
-      <!--Institute code code -->
+      <!--Institute code-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">INSTITUTE CODE:</label>
+        <label class="col-sm-3 control-label">INSTITUTE CODE: <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="institudecode" name="institudecode" [(ngModel)]=students.instituteCode
-            placeholder="Enter your institute code " class="form-control">
+            placeholder="Enter your institute code " maxlength="20" class="form-control" autofocus required>
         </div>
       </div>
 
       <!--Aadhar number -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">AADHAR NUMBER:</label>
+        <label class="col-sm-3 control-label">AADHAR NUMBER: <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="aadharnumber" name="aadharnumber" [(ngModel)]=students.adharNo minlength=12
             maxlength=12 placeholder="Enter your aadharnumber" class="form-control" (keypress)="keyPress($event)"
-            required>
+           autofocus required>
         </div>
       </div>
 
       <!--Bank ifsc code -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">BANK IFSC CODE:</label>
+        <label class="col-sm-3 control-label">BANK IFSC CODE:<span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" pattern="^[A-Za-z]{4}\d{7}$" id="bankifsccode" name="bankifsccode"
-            [(ngModel)]=students.bankIfscCode placeholder="Enter your bank ifsc code" class="form-control" required
-            required minlength=11 maxlength=11>
+            [(ngModel)]=students.bankIfscCode placeholder="Enter your bank ifsc code"
+            title="first 4 should be alphabets and remaining should be digits " class="form-control"autofocus required
+            minlength=11 maxlength=11>
         </div>
       </div>
 
       <!--Bank account number -->
       <div class="form-group">
-        <label for="bankaccountnumber" class="col-sm-3 control-label">BANK ACCOUNT NUMBER:</label>
+        <label for="bankaccountnumber" class="col-sm-3 control-label">BANK ACCOUNT NUMBER: <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="bankaccountnumber" name="bankaccountnumber" [(ngModel)]=students.bankAccNo
-            placeholder="Enter your bank account number" class="form-control" (keypress)="keyPress($event)" required>
+            placeholder="Enter your bank account number" class="form-control" (keypress)="keyPress($event)"autofocus required minlength=9 maxlength=18>
         </div>
       </div>
 
       <!--Bank name -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">BANK NAME:</label>
+        <label class="col-sm-3 control-label">BANK NAME:<span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="bankname" pattern="[a-zA-Z]*" name="bankname" placeholder="Enter your bank name"
-            [(ngModel)]=students.bankName class="form-control" required>
+          <input type="text" id="bankname" title="enter only alphabets" name="bankname"
+            placeholder="Enter your bank name" [(ngModel)]=students.bankName class="form-control"  maxlength="50" autofocus required>
         </div>
       </div>
 
       <!--Set password -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">SET PASSWORD:</label>
+        <label class="col-sm-3 control-label">SET PASSWORD <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="password" id="setpassword" name="setpassword" [(ngModel)]=students.password
-            placeholder="SET YOUR PASSWORD" class="form-control" required>
+            placeholder="SET YOUR PASSWORD" minlength="8" maxlength="20" class="form-control" autofocus required>
         </div>
       </div>
 
       <!--Confirm password -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">CONFIRM PASSWORD:</label>
+        <label class="col-sm-3 control-label">CONFIRM PASSWORD <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="password" id="confirmpassword" name="confirmpassword" placeholder="CONFIRM YOUR PASSWORD"
-            [(ngModel)]=confirmpass class="form-control" (keypress)="checkPassword($event)" required>
+          <input type="password" id="confirmpassword" name="confirmpassword" placeholder="CONFIRM YOUR PASSWORD"  minlength="8" maxlength="20" 
+            [(ngModel)]=confirmpass class="form-control" autofocus required>
         </div>
         <p style="color:red;position: relative;left:1.2%;">{{array['password']}} </p>
       </div>

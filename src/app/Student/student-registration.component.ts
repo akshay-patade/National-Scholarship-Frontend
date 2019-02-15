@@ -18,15 +18,6 @@ export class StudentRegistrationComponent {
 
     }
 
-    checkPassword(event:any) {
-        if (this.confirmpass != this.students.password) {
-            this.array['password'] = "Pasword does not match";
-        }
-        else {
-            this.array['password'] = "Password match";
-        }
-
-    }
 
     keyPress(event: any) {
         const pattern = /[0-9\+\-\ ]/;
@@ -59,10 +50,5 @@ export class StudentRegistrationComponent {
                 }
             )
         }
-
-
     }
-
-
-
 }  

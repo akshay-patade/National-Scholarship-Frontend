@@ -1,6 +1,6 @@
 <html>
 
-<body style="background:grey ">
+<body style="background:cadetblue ">
   <div class="container">
     <form ngNativeValidate class="form-horizontal" #regForm="ngForm">
       <!--Heading-->
@@ -10,20 +10,19 @@
 
       <!--Aadhar No.-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Aadhar No</label>
+        <label class="col-sm-3 control-label">Aadhar No <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="adharNo" name="adharNo" [(ngModel)]="scholarships.adharNo"
             placeholder="Enter your adharNo number" class="form-control" required minlength=12 maxlength=12
-            (keypress)="keyPress($event)">
+            (keypress)="keyPress($event)" autofocus required>
         </div>
       </div>
 
       <!--Religion-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>Religion</label>
+        <label class="col-sm-3 control-label" required>Religion <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="religionList" [(ngModel)]="scholarships.religion">
-            <option value=""></option>
+          <select name="religionList" [(ngModel)]="scholarships.religion" autofocus required>
             <option value="OBC">Obc</option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
@@ -38,8 +37,8 @@
         <label class="col-sm-3 control-label">Community Category:</label>
         <div class="col-sm-12">
           <input type="text" pattern="[a-zA-Z]*" id="communityCategory" name="communityCategory"
-            [(ngModel)]="scholarships.communityCategory" placeholder="Enter your community category" class="form-control"
-            autofocus required>
+            [(ngModel)]="scholarships.communityCategory" title="enter only alphabets"
+            placeholder="Enter your community category" class="form-control">
         </div>
       </div>
 
@@ -48,8 +47,8 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Father Name:</label>
         <div class="col-sm-12">
-          <input type="text" id="fatherName" name="fatherName" class="form-control" [(ngModel)]="scholarships.fatherName"
-            required>
+          <input type="text" id="fatherName" pattern="[a-zA-Z]*" title="enter only alphabets" name="fatherName"
+            class="form-control" [(ngModel)]="scholarships.fatherName" >
         </div>
       </div>
 
@@ -57,18 +56,18 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Mother Name:</label>
         <div class="col-sm-12">
-          <input type="text" id="motherName" name="motherName" class="form-control" [(ngModel)]="scholarships.motherName"
-            required>
+          <input type="text" id="motherName" pattern="[a-zA-Z]*" title="enter only alphabets" name="motherName"
+            class="form-control" [(ngModel)]="scholarships.motherName" >
         </div>
       </div>
 
       <!--Family Annual Income-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Family Annual Income:</label>
+        <label class="col-sm-3 control-label">Family Annual Income <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="familyAnnualIncome" name="familyAnnualIncome"
             [(ngModel)]="scholarships.familyAnnualIncome" placeholder="Enter your family annual income"
-            class="form-control" required (keypress)="keyPress($event)">
+            class="form-control" required (keypress)="keyPress($event)" minlength="6" maxlength="6" autofocus required>
         </div>
       </div>
 
@@ -76,10 +75,9 @@
 
       <!--Institute Name-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Institute Name</label>
+        <label class="col-sm-3 control-label">Institute Name <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="instituteName" [(ngModel)]="scholarships.instituteName" required>
-            <option value=""></option>
+          <select name="instituteName" [(ngModel)]="scholarships.instituteName" autofocus required>
             <option value="SINHAGAD INSTITUTE">SINHAGAD INSTITUTE</option>
             <option value="DY PATIL INSTITUTE">DY PATIL INSTITUTE</option>
           </select>
@@ -89,30 +87,30 @@
 
       <!--Present Class/Course-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Present Course/Course:</label>
+        <label class="col-sm-3 control-label">Present Course/Course <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="presentCourse" name="presentCourse" [(ngModel)]="scholarships.presentCourse"
-            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*" required>
+            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*" minlength="50" maxlength="50" title="enter alphabets only"
+            autofocus required>
         </div>
       </div>
 
       <!--Present Class/Course Year -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Present Class/Course Year:</label>
+        <label class="col-sm-3 control-label">Present Class/Course Year</label>
         <div class="col-sm-12">
           <input type="text" id="presentClassYear" name="presentClassYear" [(ngModel)]="scholarships.presentClassYear"
             minlength=4 maxlength=4 placeholder="Enter your present course year" class="form-control"
-            (keypress)="keyPress($event)" required>
+            (keypress)="keyPress($event)" >
         </div>
       </div>
 
       <!--Mode of Study-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>Mode of Study:</label>
+        <label class="col-sm-3 control-label" required>Mode of Study <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="modeOfStudyList" [(ngModel)]="scholarships.modeOfStudy">
-            <option value=""></option>
+          <select name="modeOfStudyList" [(ngModel)]="scholarships.modeOfStudy" autofocus required>
             <option value="FullTime">FullTime</option>
             <option value="PartTime">Part Time</option>
             <option value="Corespondance">Other</option>
@@ -126,7 +124,8 @@
         <label class="col-sm-3 control-label">Class Start Date:</label>
         <div class="col-sm-12">
           <input type="DATE" id="clsStartDate" name="classStartDate" class="form-control"
-            placeholder="Enter your class start date" [(ngModel)]="scholarships.classStartDate" required>
+            placeholder="Enter your class start date" [(ngModel)]="scholarships.classStartDate"
+            (keypress)="keyPress($event)" >
         </div>
       </div>
 
@@ -136,40 +135,39 @@
         <div class="col-sm-12">
           <input type="text" id="universityBoardName" name="universityBoardName"
             [(ngModel)]="scholarships.universityBoardName" placeholder="Enter your University/Board Name"
-            class="form-control" pattern="[a-zA-Z]*" required>
+            class="form-control" pattern="[a-zA-Z]*" minlength="50" maxlength="50" title="enter only alphabets" >
         </div>
       </div>
 
       <!--Previous Class/Course -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Previous Class/Course:</label>
+        <label class="col-sm-3 control-label">Previous Class/Course <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="previousClassCourse" name="previousClassCourse"
             [(ngModel)]="scholarships.previousClassCourse" placeholder="Enter your previous course" pattern="[a-zA-Z]*"
-            class="form-control" required>
+            minlength="50" maxlength="50" class="form-control" autofocus required>
         </div>
       </div>
 
       <!--Previous Passing Year -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Previous Passing Year:</label>
+        <label class="col-sm-3 control-label">Previous Passing Year</label>
         <div class="col-sm-12">
           <input type="text" id="previousPassingYear" name="previousPassingYear"
             [(ngModel)]="scholarships.previousPassingYear" minlength=4 maxlength=4
-            placeholder="Enter your previous course passing year" class="form-control" (keypress)="keyPress($event)"
-            required>
+            placeholder="Enter your previous course passing year" class="form-control" (keypress)="keyPress($event)">
         </div>
       </div>
 
       <!--Previous Class % -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Previous Class %:</label>
+        <label class="col-sm-3 control-label">Previous Class %: <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="previousClass%" name="previousClass%" [(ngModel)]="scholarships.previousClassPercent"
-            placeholder="Enter your previous class %" class="form-control" (keypress)="keyPress($event)" required>
+            placeholder="Enter your previous class % eg : 69.78" class="form-control" autofocus required>
         </div>
       </div>
 
@@ -177,19 +175,19 @@
 
       <!--Roll No -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Roll No:</label>
+        <label class="col-sm-3 control-label">Roll No <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="rollNo" name="rollNo" [(ngModel)]="scholarships.tenthRollNo"
-            placeholder="Enter your 10th class roll No " class="form-control">
+            placeholder="Enter your 10th class roll No " class="form-control" autofocus required>
         </div>
       </div>
 
       <!--Board Name-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Board Name:</label>
+        <label class="col-sm-3 control-label">Board Name </label>
         <div class="col-sm-12">
           <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.tenthBoardName"
-            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" required>
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" minlength="80" maxlength="80" title="enter alphabets only" >
         </div>
       </div>
 
@@ -200,17 +198,17 @@
         <div class="col-sm-12">
           <input type="text" id="passingYear" name="passingYear" [(ngModel)]="scholarships.tenthPassingYear" minlength=4
             maxlength=4 placeholder="Enter your 10th class passing year" class="form-control"
-            (keypress)="keyPress($event)" required>
+            (keypress)="keyPress($event)" >
         </div>
       </div>
 
       <!--% Obtained in 10th -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">% Obtained:</label>
+        <label class="col-sm-3 control-label">% Obtained <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="%Obtained" name="%Obtained" [(ngModel)]="scholarships.tenthPercentObtained"
-            placeholder="Enter your 10th Class %" class="form-control" required>
+            placeholder="Enter your 10th Class % eg : 68.79" class="form-control" autofocus required>
         </div>
       </div>
 
@@ -219,40 +217,40 @@
 
       <!--Roll No -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Roll No:</label>
+        <label class="col-sm-3 control-label">Roll No <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="rollNo" name="rollNo" [(ngModel)]="scholarships.twelvthrollNo"
-            placeholder="Enter your 12th class roll No " class="form-control">
+            placeholder="Enter your 12th class roll No " class="form-control" autofocus required>
         </div>
       </div>
 
       <!--Board Name-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Board Name:</label>
+        <label class="col-sm-3 control-label">Board Name</label>
         <div class="col-sm-12">
           <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.twelvthBoardName"
-            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" required>
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" minlength="80" maxlength="80" title="enter alphabets only">
         </div>
       </div>
 
       <!--Passing Year-->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Passing Year:</label>
+        <label class="col-sm-3 control-label">Passing Year</label>
         <div class="col-sm-12">
           <input type="text" id="passingYear" name="passingYear" [(ngModel)]="scholarships.twelvthPassingYear"
             minlength=4 maxlength=4 placeholder="Enter your 12th class passing year" class="form-control"
-            (keypress)="keyPress($event)" required>
+            (keypress)="keyPress($event)">
         </div>
       </div>
 
-      <!--% Obtained in 10th -->
+      <!--% Obtained in 12thth -->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">% Obtained:</label>
+        <label class="col-sm-3 control-label">% Obtained <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="%Obtained" name="%Obtained" [(ngModel)]="scholarships.twelvthpercentObtained"
-            placeholder="Enter your 12th Class %" class="form-control" required>
+            placeholder="Enter your 12th Class % eg : 68.79" class="form-control" autofocus required>
         </div>
       </div>
 
@@ -260,19 +258,19 @@
 
       <!--Admission Fee -->
       <div class="form-group">
-        <label for="admissionFee" class="col-sm-3 control-label">Admission Fee:</label>
+        <label for="admissionFee" class="col-sm-3 control-label">Admission Fee <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="admissionFee" name="admissionFee" [(ngModel)]="scholarships.admissionFee"
-            placeholder="Enter your admission fee" class="form-control" (keypress)="keyPress($event)" required>
+            placeholder="Enter your admission fee" class="form-control" (keypress)="keyPress($event)" minlength="10" maxlength="10" autofocus required>
         </div>
       </div>
 
       <!--Tution Fee -->
       <div class="form-group">
-        <label for="tutionFee" class="col-sm-3 control-label">Tution Fee:</label>
+        <label for="tutionFee" class="col-sm-3 control-label">Tution Fee <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="tutionFee" name="tutionFee" [(ngModel)]="scholarships.tutionFee"
-            placeholder="Enter your tution fee" class="form-control" (keypress)="keyPress($event)" required>
+            placeholder="Enter your tution fee" class="form-control" (keypress)="keyPress($event)"  minlength="10" maxlength="10" autofocus required>
         </div>
       </div>
 
@@ -282,7 +280,7 @@
         <label for="otherFee" class="col-sm-3 control-label">Other Fee:</label>
         <div class="col-sm-12">
           <input type="text" id="otherFee" name="otherFee" [(ngModel)]="scholarships.otherFee"
-            placeholder="Enter other fee if any" class="form-control" (keypress)="keyPress($event)">
+            placeholder="Enter other fee if any" class="form-control" (keypress)="keyPress($event)"  minlength="10" maxlength="10">
         </div>
       </div>
 
@@ -291,10 +289,9 @@
       <!--Is Disabled-->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Is Disabled:</label>
+        <label class="col-sm-3 control-label">Is Disabled <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="disabilityList" [(ngModel)]="scholarships.disability">
-            <option value=""></option>
+          <select name="disabilityList" [(ngModel)]="scholarships.disability" autofocus required>
             <option value="yes">Yes</option>
             <option value="no">No</option>
 
@@ -304,29 +301,28 @@
 
       <!--Type of Disability -->
       <div class="form-group">
-        <label for="disabilityType" class="col-sm-3 control-label">Type of Disability:</label>
+        <label for="disabilityType" class="col-sm-3 control-label">Type of Disability <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="disabilityType" name="disabilityType" [(ngModel)]="scholarships.disabilityType"
-            placeholder="Enter disability type" class="form-control" required>
+            placeholder="Enter disability type" class="form-control"  minlength="80" maxlength="80" autofocus required>
         </div>
       </div>
 
       <!--Percentage of Disability-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">% Of Disability:</label>
+        <label class="col-sm-3 control-label">% Of Disability </label>
         <div class="col-sm-12">
           <input type="text" id="%OfDisability" name="%OfDisability" [(ngModel)]="scholarships.percentOfDisability"
-            placeholder="Enter your disability %" class="form-control" required>
+            placeholder="Enter your disability % eg : 30" minlength="2" maxlength="2" class="form-control" >
         </div>
       </div>
 
       <!--Marital Status-->
 
       <div class="form-group">
-        <label class="col-sm-3 control-label">Marital Status:</label>
+        <label class="col-sm-3 control-label">Marital Status <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="maritalStatusList" [(ngModel)]="scholarships.maritalStatus">
-            <option value=""></option>
+          <select name="maritalStatusList" [(ngModel)]="scholarships.maritalStatus" autofocus required>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
             <option value="single">Single</option>
@@ -337,11 +333,11 @@
 
       <!--Parents Profession -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Parents Profession:</label>
+        <label class="col-sm-3 control-label">Parents Profession </label>
         <div class="col-sm-12">
-          <input type="text" id="parentsProfession" pattern="[a-zA-Z]*" name="parentsProfession"
-            placeholder="Enter your parent's profession" [(ngModel)]="scholarships.parentsProfession"
-            class="form-control" required>
+          <input type="text" id="parentsProfession" pattern="[a-zA-Z]*" title="enter alphabets only"
+            name="parentsProfession" minlength="80" maxlength="80" placeholder="Enter your parent's profession"
+            [(ngModel)]="scholarships.parentsProfession" class="form-control" >
         </div>
       </div>
 
@@ -349,10 +345,9 @@
 
       <!--State-->
       <div class="form-group">
-        <label class="col-sm-3 control-label">STATE:</label>
+        <label class="col-sm-3 control-label">State <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="stateslist" [(ngModel)]="scholarships.state" required>
-            <option value=""></option>
+          <select name="stateslist" [(ngModel)]="scholarships.state" autofocus required>
             <option value="andaman">ANDAMAN AND NICOBAR</option>
             <option value="maharashtra">MAHARASHTRA</option>
           </select>
@@ -361,10 +356,9 @@
 
       <!--DISTRICT-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>DISTRICT:</label>
+        <label class="col-sm-3 control-label">District <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="stateslist" [(ngModel)]="scholarships.district">
-            <option value=""></option>
+          <select name="districtlist" [(ngModel)]="scholarships.district" autofocus required>
             <option value="Mumbai">Mumbai</option>
             <option value="Pune">Pune</option>
           </select>
@@ -373,9 +367,9 @@
 
       <!--Block/Taluka-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>Block/Taluka:</label>
+        <label class="col-sm-3 control-label">Block/Taluka:</label>
         <div class="col-sm-12">
-          <select name="stateslist" [(ngModel)]="scholarships.blockOrTaluka">
+          <select name="talukalist" [(ngModel)]="scholarships.blockOrTaluka">
             <option value=""></option>
             <option value="Haveli">Mumbai</option>
           </select>
@@ -384,32 +378,32 @@
 
       <!--House No-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>House No:</label>
+        <label class="col-sm-3 control-label">House No <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="houseNo" name="houseNo" [(ngModel)]="scholarships.houseNo" placeholder="Enter House No"
-            class="form-control" (keypress)="keyPress($event)" required>
+            class="form-control" minlength="5" maxlength="10" (keypress)="keyPress($event)" autofocus required>
         </div>
       </div>
 
       <!--Street No-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>Street No:</label>
+        <label class="col-sm-3 control-label">Street No <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="streetNo" name="streetNo" [(ngModel)]="scholarships.streetNo"
-            placeholder="Enter Street No" class="form-control" (keypress)="keyPress($event)" required>
+            placeholder="Enter Street No" class="form-control" minlength="5" maxlength="10" (keypress)="keyPress($event)" autofocus required>
         </div>
       </div>
 
       <!--Pincode-->
       <div class="form-group">
-        <label class="col-sm-3 control-label" required>Pincode:</label>
+        <label class="col-sm-3 control-label">Pincode <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="pinCode" name="pinCode" [(ngModel)]="scholarships.pinCode" placeholder="Enter Pincode"
-            class="form-control" minlength="6" maxlength="6" (keypress)="keyPress($event)" required>
+            class="form-control" minlength="6" maxlength="6" (keypress)="keyPress($event)" autofocus required>
         </div>
       </div>
       <br>
-    
+
 
 
       <!--Choose scheme-->
@@ -432,150 +426,151 @@
       <div class="form-group">
         <div class="row">
           <div class="col-sm-3">
-            DOMICILE CERTIFICATE:
+            DOMICILE CERTIFICATE <label><span style="color:red">*</span></label>
           </div>
           <div class="col-sm-3">
-            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;" autofocus required>
           </div>
         </div>
       </div>
 
-       <!-- STUDENT PHOTOGRAPH-->
-       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-              STUDENT PHOTOGRAPH:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-          </div>
-        </div>
-
-         <!--INSTITUTE ID CARD:-->
+      <!-- STUDENT PHOTOGRAPH-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                INSTITUTE ID CARD:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            STUDENT PHOTOGRAPH: <label><span style="color:red">*</span></label>
+          </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;" autofocus required>
           </div>
         </div>
+      </div>
 
-        <!--CASTE/INCOME CERTIFICATE:-->
+      <!--INSTITUTE ID CARD:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                CASTE/INCOME CERTIFICATE:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            INSTITUTE ID CARD: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;" autofocus required>
+          </div>
 
-        <!--CASTE/INCOME CERTIFICATE:-->
+        </div>
+      </div>
+
+      <!--CASTE/INCOME CERTIFICATE:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                CASTE/INCOME CERTIFICATE:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            CASTE/INCOME CERTIFICATE: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-        <!--PREVIOUS YEAR MARKSHEET:-->
+        </div>
+      </div>
+
+      <!--CASTE/INCOME CERTIFICATE:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                PREVIOUS YEAR MARKSHEET:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            CASTE/INCOME CERTIFICATE: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-        <!--FEE RECEIPT OF CURRENT YEAR:-->
+        </div>
+      </div>
+
+      <!--PREVIOUS YEAR MARKSHEET:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                FEE RECEIPT OF CURRENT YEAR:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            PREVIOUS YEAR MARKSHEET: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-        <!--BANK PASSBOOK(FRONT PAGE):-->
+        </div>
+      </div>
+
+      <!--FEE RECEIPT OF CURRENT YEAR:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                BANK PASSBOOK(FRONT PAGE):
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            FEE RECEIPT OF CURRENT YEAR: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-        <!--ADHAR CARD:-->
+        </div>
+      </div>
+
+      <!--BANK PASSBOOK(FRONT PAGE):-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                ADHAR CARD:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            BANK PASSBOOK(FRONT PAGE): <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-        <!--10TH CLASS MARKSHEET:-->
+        </div>
+      </div>
+
+      <!--ADHAR CARD:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                10TH CLASS MARKSHEET:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            ADHAR CARD: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-         <!--12TH CLASS MARKSHEET:-->
+        </div>
+      </div>
+
+      <!--10TH CLASS MARKSHEET:-->
       <div class="form-group">
-          <div class="row">
-            <div class="col-sm-3">
-                12TH CLASS MARKSHEET:
-            </div>
-            <div class="col-sm-3">
-              <input type="file" class="btn btn-primary" style="font: bold 14px Arial;">  
-            </div>
-  
+        <div class="row">
+          <div class="col-sm-3">
+            10TH CLASS MARKSHEET: <label><span style="color:red">*</span></label>
           </div>
-        </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
 
-        <br>
-        <br>
+        </div>
+      </div>
+
+      <!--12TH CLASS MARKSHEET:-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-3">
+            12TH CLASS MARKSHEET: <label><span style="color:red">*</span></label>
+          </div>
+          <div class="col-sm-3">
+            <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
+          </div>
+
+        </div>
+      </div>
+
+      <br>
+      <br>
 
       <!--Agreement-->
       <div class="form-group">
         <div class="col-sm-12">
-          <input type="checkbox" [(ngModel)]="checkBox" name="read" value="read"> ALL THE DETAILS FURNISHED BY ME ARE TRUE
+          <input type="checkbox" [(ngModel)]="checkBox" name="read" value="read"> ALL THE DETAILS FURNISHED BY ME ARE
+          TRUE
           TO THE BEST OF MY KNOWLEDGE IF ANY MISTAKES ARE FOUND THEN I MAY BE DISQUALIFIED FOR THE SCHOLARSHIP SCHEME
           ANNOUNCED BY GOVERNMENT OF INDIA OR MY STATE GOVERNMENT.
           <br>
@@ -587,8 +582,8 @@
 
       <!--SUBMIT-->
       <div class="form-group">
-        <input type="submit" (click)="check(regform)" class="btn btn-primary btn-lg btn-block">
-        <button type="button" class="btn btn-danger btn-block">Reset</button>
+        <input type="submit" (click)="check(regform)" class="btn btn-primary btn-lg btn-block"><br>
+        <button type="reset" class="btn btn-primary" id="reset-btn" ng-click="reset()">Reset</button><br><br>
       </div>
 
 

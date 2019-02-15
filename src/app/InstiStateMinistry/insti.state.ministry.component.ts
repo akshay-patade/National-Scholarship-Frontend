@@ -1,11 +1,10 @@
 import { Component } from '@angular/core'
 
 @Component({
-    selector: 'insti-state-ministry-page',
-    templateUrl: './homepage.component.html',
+    selector: 'insti-state-ministry-loginpage',
+    templateUrl: './insti.state.ministry.component.html',
 
 })
 export class InstiStateMinistryComponent {
   
-
 }
