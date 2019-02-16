@@ -2,33 +2,35 @@
 
 <body style="background:cadetblue ">
   <div class="container">
-    <form ngNativeValidate class="form-horizontal" #regForm="ngForm">
+    <form #scholarshipForm="ngForm"  ngNativeValidate class="form-horizontal" #regForm="ngForm">
       <!--Heading-->
       <h2 style="text-align:center;">SCHOLARSHIP APPLICATION FORM</h2>
 
       <h3 style="text-align:center;">BASIC DETAILS</h3>
 
       <!--Aadhar No.-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="aadharNoControl.invalid && aadharNoControl.touched">
         <label class="col-sm-3 control-label">Aadhar No <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="adharNo" name="adharNo" [(ngModel)]="scholarships.adharNo"
+          <input type="text" id="adharNo" name="adharNo" [(ngModel)]="scholarships.adharNo" #aadharNoControl="ngModel"
             placeholder="Enter your adharNo number" class="form-control" required minlength=12 maxlength=12
             (keypress)="keyPress($event)" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="aadharNoControl.invalid && aadharNoControl.touched">Aadhar No is Mandatory</span>
         </div>
       </div>
 
       <!--Religion-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="religionControl.invalid && religionControl.touched">
         <label class="col-sm-3 control-label" required>Religion <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="religionList" [(ngModel)]="scholarships.religion" autofocus required>
+          <select name="religionList" [(ngModel)]="scholarships.religion" #religionControl="ngModel" class="form-control" autofocus required>
             <option value="OBC">Obc</option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
             <option value="Open">Open</option>
             <option value="Other">Other</option>
           </select>
+          <span style="color:red;" class="help-block" *ngIf="religionControl.invalid && religionControl.touched">Select suitable option</span>
         </div>
       </div>
 
@@ -48,7 +50,7 @@
         <label class="col-sm-3 control-label">Father Name:</label>
         <div class="col-sm-12">
           <input type="text" id="fatherName" pattern="[a-zA-Z]*" title="enter only alphabets" name="fatherName"
-            class="form-control" [(ngModel)]="scholarships.fatherName" >
+            class="form-control" placeholder="Enter Father's Name" maxlength="50" [(ngModel)]="scholarships.fatherName" >
         </div>
       </div>
 
@@ -57,41 +59,44 @@
         <label class="col-sm-3 control-label">Mother Name:</label>
         <div class="col-sm-12">
           <input type="text" id="motherName" pattern="[a-zA-Z]*" title="enter only alphabets" name="motherName"
-            class="form-control" [(ngModel)]="scholarships.motherName" >
+            class="form-control"  placeholder="Enter Mother's Name"  maxlength="50" [(ngModel)]="scholarships.motherName" >
         </div>
       </div>
 
       <!--Family Annual Income-->
-      <div class="form-group">
+      <div class="form-group"  [class.has-error]="familyIncomeControl.invalid && familyIncomeControl.touched">
         <label class="col-sm-3 control-label">Family Annual Income <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="familyAnnualIncome" name="familyAnnualIncome"
-            [(ngModel)]="scholarships.familyAnnualIncome" placeholder="Enter your family annual income"
-            class="form-control" required (keypress)="keyPress($event)" minlength="6" maxlength="6" autofocus required>
+            [(ngModel)]="scholarships.familyAnnualIncome" #familyIncomeControl="ngModel" placeholder="Enter your family annual income"
+            class="form-control" required (keypress)="keyPress($event)" minlength="5" maxlength="7" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="familyIncomeControl.invalid && familyIncomeControl.touched">Enter your Family Annual Income</span>
         </div>
       </div>
 
       <h3>ACADEMIC DETAILS</h3>
 
       <!--Institute Name-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="instituteNameControl.invalid && instituteNameControl.touched">
         <label class="col-sm-3 control-label">Institute Name <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="instituteName" [(ngModel)]="scholarships.instituteName" autofocus required>
+          <select name="instituteName" [(ngModel)]="scholarships.instituteName" #instituteNameControl="ngModel" class="form-control" autofocus required>
             <option value="SINHAGAD INSTITUTE">SINHAGAD INSTITUTE</option>
             <option value="DY PATIL INSTITUTE">DY PATIL INSTITUTE</option>
           </select>
+          <span style="color:red;" class="help-block" *ngIf="instituteNameControl.invalid && instituteNameControl.touched">Select suitable option</span>
         </div>
       </div>
 
 
       <!--Present Class/Course-->
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Present Course/Course <span style="color:red">*</span></label>
+      <div class="form-group"  [class.has-error]="presentClassControl.invalid && presentClassControl.touched">
+        <label class="col-sm-3 control-label">Present Class/Course <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="presentCourse" name="presentCourse" [(ngModel)]="scholarships.presentCourse"
-            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*" minlength="50" maxlength="50" title="enter alphabets only"
+          <input type="text" id="presentCourse" name="presentCourse" [(ngModel)]="scholarships.presentCourse" #presentClassControl="ngModel"
+            placeholder="Enter your present class" class="form-control" pattern="[a-zA-Z]*"  maxlength="50" title="enter alphabets only"
             autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="presentClassControl.invalid && presentClassControl.touched">Enter Present Course</span>
         </div>
       </div>
 
@@ -107,15 +112,15 @@
       </div>
 
       <!--Mode of Study-->
-      <div class="form-group">
-        <label class="col-sm-3 control-label" required>Mode of Study <span style="color:red">*</span></label>
+      <div class="form-group" [class.has-error]="modeOfStudyControl.invalid && modeOfStudyControl.touched">
+        <label class="col-sm-3 control-label" required>Mode of Study<span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="modeOfStudyList" [(ngModel)]="scholarships.modeOfStudy" autofocus required>
+          <select name="modeOfStudy" [(ngModel)]="scholarships.modeOfStudy" #modeOfStudyControl="ngModel" class="form-control"  autofocus required>
             <option value="FullTime">FullTime</option>
             <option value="PartTime">Part Time</option>
             <option value="Corespondance">Other</option>
-
           </select>
+          <span style="color:red;" class="help-block" *ngIf="modeOfStudyControl.invalid && modeOfStudyControl.touched">Select suitable option</span>
         </div>
       </div>
 
@@ -125,28 +130,30 @@
         <div class="col-sm-12">
           <input type="DATE" id="clsStartDate" name="classStartDate" class="form-control"
             placeholder="Enter your class start date" [(ngModel)]="scholarships.classStartDate"
-            (keypress)="keyPress($event)" >
+            (keypress)="keyPress($event)">
         </div>
       </div>
 
       <!--University/Board Name-->
-      <div class="form-group">
-        <label class="col-sm-3 control-label">University/Board Name:</label>
+      <div class="form-group" [class.has-error]="universityNameControl.invalid && universityNameControl.touched">
+        <label class="col-sm-3 control-label">University/Board Name <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="universityBoardName" name="universityBoardName"
-            [(ngModel)]="scholarships.universityBoardName" placeholder="Enter your University/Board Name"
-            class="form-control" pattern="[a-zA-Z]*" minlength="50" maxlength="50" title="enter only alphabets" >
+            [(ngModel)]="scholarships.universityBoardName" #universityNameControl="ngModel" placeholder="Enter your University/Board Name"
+            class="form-control" pattern="[a-z A-Z]*"  maxlength="50" title="enter only alphabets" autofocus required >
+            <span style="color:red;" class="help-block" *ngIf="universityNameControl.invalid && universityNameControl.touched">Enter your University name</span>
         </div>
       </div>
 
       <!--Previous Class/Course -->
 
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="prevCourseControl.invalid && prevCourseControl.touched">
         <label class="col-sm-3 control-label">Previous Class/Course <span style="color:red">*</span></label>
         <div class="col-sm-12">
           <input type="text" id="previousClassCourse" name="previousClassCourse"
-            [(ngModel)]="scholarships.previousClassCourse" placeholder="Enter your previous course" pattern="[a-zA-Z]*"
-            minlength="50" maxlength="50" class="form-control" autofocus required>
+            [(ngModel)]="scholarships.previousClassCourse" #prevCourseControl="ngModel" placeholder="Enter your previous course" pattern="[a-z A-Z]*"
+            maxlength="50" class="form-control" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="prevCourseControl.invalid && prevCourseControl.touched">Enter your previous Course</span>
         </div>
       </div>
 
@@ -163,52 +170,57 @@
 
       <!--Previous Class % -->
 
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="prevClassPercentControl.invalid && prevClassPercentControl.touched">
         <label class="col-sm-3 control-label">Previous Class %: <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="previousClass%" name="previousClass%" [(ngModel)]="scholarships.previousClassPercent"
+          <input type="text" id="previousClass%" name="previousClass%" [(ngModel)]="scholarships.previousClassPercent" #prevClassPercentControl="ngModel"
             placeholder="Enter your previous class % eg : 69.78" class="form-control" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="prevClassPercentControl.invalid && prevClassPercentControl.touched">Enter % obtained in previous class</span>
         </div>
       </div>
 
       <h3>10TH CLASS</h3>
 
       <!--Roll No -->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="tenRollNoControl.invalid && tenRollNoControl.touched">
         <label class="col-sm-3 control-label">Roll No <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="rollNo" name="rollNo" [(ngModel)]="scholarships.tenthRollNo"
+          <input type="text" id="tenrollNo" name="tenrollNo" [(ngModel)]="scholarships.tenthRollNo" #tenRollNoControl="ngModel"
             placeholder="Enter your 10th class roll No " class="form-control" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="tenRollNoControl.invalid && tenRollNoControl.touched">Enter 10th class Roll No.</span>
         </div>
       </div>
 
       <!--Board Name-->
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Board Name </label>
+      <div class="form-group" [class.has-error]="tenBoardNameControl.invalid && tenBoardNameControl.touched">
+        <label class="col-sm-3 control-label">Board Name <span style="color:red">*</span> </label>
         <div class="col-sm-12">
-          <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.tenthBoardName"
-            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" minlength="80" maxlength="80" title="enter alphabets only" >
+          <input type="text" id="tenboardName" name="tenboardName" [(ngModel)]="scholarships.tenthBoardName" #tenBoardNameControl="ngModel"
+            placeholder="Enter your Board Name" class="form-control" pattern="[a-z A-Z]*"  maxlength="80" title="enter alphabets only" autofocus required >
+            <span style="color:red;" class="help-block" *ngIf="tenBoardNameControl.invalid && tenBoardNameControl.touched">Enter your 10th board name</span>
         </div>
       </div>
 
       <!--Passing Year-->
 
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Passing Year:</label>
+      <div class="form-group" [class.has-error]="tenPassYearControl.invalid && tenPassYearControl.touched">
+        <label class="col-sm-3 control-label">Passing Year <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="passingYear" name="passingYear" [(ngModel)]="scholarships.tenthPassingYear" minlength=4
+          <input type="text" id="tenpassingYear" name="tenpassingYear" [(ngModel)]="scholarships.tenthPassingYear" #tenPassYearControl="ngModel" minlength=4
             maxlength=4 placeholder="Enter your 10th class passing year" class="form-control"
-            (keypress)="keyPress($event)" >
+            (keypress)="keyPress($event)" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="tenPassYearControl.invalid && tenPassYearControl.touched">Enter your 10th Passing Year</span>
         </div>
       </div>
 
       <!--% Obtained in 10th -->
 
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="tenMarksObtControl.invalid && tenMarksObtControl.touched">
         <label class="col-sm-3 control-label">% Obtained <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="%Obtained" name="%Obtained" [(ngModel)]="scholarships.tenthPercentObtained"
+          <input type="text" id="ten%Obtained" name="ten%Obtained" [(ngModel)]="scholarships.tenthPercentObtained" #tenMarksObtControl="ngModel"
             placeholder="Enter your 10th Class % eg : 68.79" class="form-control" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="tenMarksObtControl.invalid && tenMarksObtControl.touched">Enter 10th class %</span>
         </div>
       </div>
 
@@ -216,61 +228,67 @@
       <h3>12TH CLASS</h3>
 
       <!--Roll No -->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="twelveRollNoControl.invalid && twelveRollNoControl.touched">
         <label class="col-sm-3 control-label">Roll No <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="rollNo" name="rollNo" [(ngModel)]="scholarships.twelvthrollNo"
+          <input type="text" id="tewlverollNo" name="twelverollNo" [(ngModel)]="scholarships.twelvthrollNo" #twelveRollNoControl="ngModel"
             placeholder="Enter your 12th class roll No " class="form-control" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="twelveRollNoControl.invalid && twelveRollNoControl.touched">Enter 12th class Roll No.</span>
         </div>
       </div>
 
       <!--Board Name-->
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Board Name</label>
-        <div class="col-sm-12">
-          <input type="text" id="boardName" name="boardName" [(ngModel)]="scholarships.twelvthBoardName"
-            placeholder="Enter your Board Name" class="form-control" pattern="[a-zA-Z]*" minlength="80" maxlength="80" title="enter alphabets only">
+      <div class="form-group" [class.has-error]="twelveBoardNameControl.invalid && twelveBoardNameControl.touched">
+          <label class="col-sm-3 control-label">Board Name <span style="color:red">*</span> </label>
+          <div class="col-sm-12">
+            <input type="text" id="twelveboardName" name="twelveboardName" [(ngModel)]="scholarships.twelvthBoardName" #twelveBoardNameControl="ngModel"
+              placeholder="Enter your Board Name" class="form-control" pattern="[a-z A-Z]*"  maxlength="80" title="enter alphabets only" autofocus required >
+              <span style="color:red;" class="help-block" *ngIf="twelveBoardNameControl.invalid && twelveBoardNameControl.touched">Enter your 12th board name</span>
+          </div>
         </div>
-      </div>
 
       <!--Passing Year-->
 
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Passing Year</label>
-        <div class="col-sm-12">
-          <input type="text" id="passingYear" name="passingYear" [(ngModel)]="scholarships.twelvthPassingYear"
-            minlength=4 maxlength=4 placeholder="Enter your 12th class passing year" class="form-control"
-            (keypress)="keyPress($event)">
+      <div class="form-group" [class.has-error]="twelvePassYearControl.invalid && twelvePassYearControl.touched">
+          <label class="col-sm-3 control-label">Passing Year <span style="color:red">*</span></label>
+          <div class="col-sm-12">
+            <input type="text" id="twelvepassingYear" name="twelvepassingYear" [(ngModel)]="scholarships.twelvthPassingYear" #twelvePassYearControl="ngModel" minlength=4
+              maxlength=4 placeholder="Enter your 10th class passing year" class="form-control"
+              (keypress)="keyPress($event)" autofocus required>
+              <span style="color:red;" class="help-block" *ngIf="twelvePassYearControl.invalid && twelvePassYearControl.touched">Enter your 10th Passing Year</span>
+          </div>
         </div>
-      </div>
 
-      <!--% Obtained in 12thth -->
+      <!--% Obtained in 12th-->
 
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="twelveMarksObtControl.invalid && twelveMarksObtControl.touched">
         <label class="col-sm-3 control-label">% Obtained <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="%Obtained" name="%Obtained" [(ngModel)]="scholarships.twelvthpercentObtained"
+          <input type="text" id="twelve%Obtained" name="twelve%Obtained" [(ngModel)]="scholarships.twelvthpercentObtained" #twelveMarksObtControl="ngModel"
             placeholder="Enter your 12th Class % eg : 68.79" class="form-control" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="twelveMarksObtControl.invalid && twelveMarksObtControl.touched">Enter 12th class %</span>
         </div>
       </div>
 
       <h3>Fee Details</h3>
 
       <!--Admission Fee -->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="admissionFeeControl.invalid && admissionFeeControl.touched">
         <label for="admissionFee" class="col-sm-3 control-label">Admission Fee <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="admissionFee" name="admissionFee" [(ngModel)]="scholarships.admissionFee"
-            placeholder="Enter your admission fee" class="form-control" (keypress)="keyPress($event)" minlength="10" maxlength="10" autofocus required>
+          <input type="text" id="admissionFee" name="admissionFee" [(ngModel)]="scholarships.admissionFee" #admissionFeeControl="ngModel"
+            placeholder="Enter your admission fee" class="form-control" (keypress)="keyPress($event)"  maxlength="10" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="admissionFeeControl.invalid && admissionFeeControl.touched">Enter Admission Control</span>
         </div>
       </div>
 
       <!--Tution Fee -->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="tutionFeeControl.invalid && tutionFeeControl.touched">
         <label for="tutionFee" class="col-sm-3 control-label">Tution Fee <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="tutionFee" name="tutionFee" [(ngModel)]="scholarships.tutionFee"
-            placeholder="Enter your tution fee" class="form-control" (keypress)="keyPress($event)"  minlength="10" maxlength="10" autofocus required>
+          <input type="text" id="tutionFee" name="tutionFee" [(ngModel)]="scholarships.tutionFee" #tutionFeeControl="ngModel"
+            placeholder="Enter your tution fee" class="form-control" (keypress)="keyPress($event)"  maxlength="10" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="tutionFeeControl.invalid && tutionFeeControl.touched">Enter tution fee</span>
         </div>
       </div>
 
@@ -280,7 +298,7 @@
         <label for="otherFee" class="col-sm-3 control-label">Other Fee:</label>
         <div class="col-sm-12">
           <input type="text" id="otherFee" name="otherFee" [(ngModel)]="scholarships.otherFee"
-            placeholder="Enter other fee if any" class="form-control" (keypress)="keyPress($event)"  minlength="10" maxlength="10">
+            placeholder="Enter other fee if any" class="form-control" (keypress)="keyPress($event)" maxlength="10">
         </div>
       </div>
 
@@ -288,23 +306,24 @@
 
       <!--Is Disabled-->
 
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="disabilityControl.invalid && disabilityControl.touched">
         <label class="col-sm-3 control-label">Is Disabled <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="disabilityList" [(ngModel)]="scholarships.disability" autofocus required>
+          <select name="disabilityList" [(ngModel)]="scholarships.disability" #disabilityControl="ngModel" class="form-control" autofocus required>
             <option value="yes">Yes</option>
             <option value="no">No</option>
-
           </select>
+          <span style="color:red;" class="help-block" *ngIf="disabilityControl.invalid && disabilityControl.touched">Select suitable option</span>
         </div>
       </div>
 
       <!--Type of Disability -->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="disabilitytypeControl.invalid && disabilitytypeControl.touched">
         <label for="disabilityType" class="col-sm-3 control-label">Type of Disability <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="disabilityType" name="disabilityType" [(ngModel)]="scholarships.disabilityType"
-            placeholder="Enter disability type" class="form-control"  minlength="80" maxlength="80" autofocus required>
+          <input type="text" id="disabilityType" name="disabilityType" [(ngModel)]="scholarships.disabilityType" #disabilitytypeControl="ngModel"
+            placeholder="Enter disability type" class="form-control" maxlength="80" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="disabilitytypeControl.invalid && disabilitytypeControl.touched">Enter Disability Type</span>
         </div>
       </div>
 
@@ -319,14 +338,15 @@
 
       <!--Marital Status-->
 
-      <div class="form-group">
+      <div class="form-group"  [class.has-error]="maritalStatusControl.invalid && maritalStatusControl.touched">
         <label class="col-sm-3 control-label">Marital Status <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="maritalStatusList" [(ngModel)]="scholarships.maritalStatus" autofocus required>
+          <select name="maritalStatusList" [(ngModel)]="scholarships.maritalStatus" #maritalStatusControl="ngModel" autofocus required>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
             <option value="single">Single</option>
           </select>
+          <span style="color:red;" class="help-block" *ngIf="maritalStatusControl.invalid && maritalStatusControl.touched">Select suitable option</span>
         </div>
       </div>
 
@@ -335,8 +355,8 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Parents Profession </label>
         <div class="col-sm-12">
-          <input type="text" id="parentsProfession" pattern="[a-zA-Z]*" title="enter alphabets only"
-            name="parentsProfession" minlength="80" maxlength="80" placeholder="Enter your parent's profession"
+          <input type="text" id="parentsProfession" pattern="[a-z A-Z]*" title="enter alphabets only"
+            name="parentsProfession"  maxlength="80" placeholder="Enter your parent's profession"
             [(ngModel)]="scholarships.parentsProfession" class="form-control" >
         </div>
       </div>
@@ -344,24 +364,26 @@
       <h3>CONTACT DETAILS</h3>
 
       <!--State-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="studentStateControl.invalid && studentStateControl.touched">
         <label class="col-sm-3 control-label">State <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="stateslist" [(ngModel)]="scholarships.state" autofocus required>
+          <select name="stateslist" [(ngModel)]="scholarships.state" #studentStateControl="ngModel" autofocus required>
             <option value="andaman">ANDAMAN AND NICOBAR</option>
             <option value="maharashtra">MAHARASHTRA</option>
           </select>
+          <span style="color:red;" class="help-block" *ngIf="studentStateControl.invalid && studentStateControl.touched">Select suitable option</span>
         </div>
       </div>
 
       <!--DISTRICT-->
-      <div class="form-group">
+      <div class="form-group"  [class.has-error]="studentDistrictControl.invalid && studentDistrictControl.touched">
         <label class="col-sm-3 control-label">District <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <select name="districtlist" [(ngModel)]="scholarships.district" autofocus required>
+          <select name="districtlist" [(ngModel)]="scholarships.district" #studentDistrictControl="ngModel" autofocus required>
             <option value="Mumbai">Mumbai</option>
             <option value="Pune">Pune</option>
           </select>
+          <span style="color:red;" class="help-block" *ngIf="studentDistrictControl.invalid && studentDistrictControl.touched">Select suitable option</span>
         </div>
       </div>
 
@@ -377,29 +399,32 @@
       </div>
 
       <!--House No-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="houseNoControl.invalid && houseNoControl.touched">
         <label class="col-sm-3 control-label">House No <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="houseNo" name="houseNo" [(ngModel)]="scholarships.houseNo" placeholder="Enter House No"
+          <input type="text" id="houseNo" name="houseNo" [(ngModel)]="scholarships.houseNo" #houseNoControl="ngModel" placeholder="Enter House No"
             class="form-control" minlength="5" maxlength="10" (keypress)="keyPress($event)" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="houseNoControl.invalid && houseNoControl.touched">Enter House No.</span>
         </div>
       </div>
 
       <!--Street No-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="streetNoControl.invalid && streetNoControl.touched">
         <label class="col-sm-3 control-label">Street No <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="streetNo" name="streetNo" [(ngModel)]="scholarships.streetNo"
+          <input type="text" id="streetNo" name="streetNo" [(ngModel)]="scholarships.streetNo" #streetNoControl="ngModel"
             placeholder="Enter Street No" class="form-control" minlength="5" maxlength="10" (keypress)="keyPress($event)" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="streetNoControl.invalid && streetNoControl.touched">Enter Street No.</span>
         </div>
       </div>
 
       <!--Pincode-->
-      <div class="form-group">
+      <div class="form-group" [class.has-error]="pincodControl.invalid && pincodControl.touched">
         <label class="col-sm-3 control-label">Pincode <span style="color:red">*</span></label>
         <div class="col-sm-12">
-          <input type="text" id="pinCode" name="pinCode" [(ngModel)]="scholarships.pinCode" placeholder="Enter Pincode"
+          <input type="text" id="pinCode" name="pinCode" [(ngModel)]="scholarships.pinCode" #pincodControl="ngModel" placeholder="Enter Pincode"
             class="form-control" minlength="6" maxlength="6" (keypress)="keyPress($event)" autofocus required>
+            <span style="color:red;" class="help-block" *ngIf="pincodControl.invalid && pincodControl.touched">Pincode is mandatory</span>
         </div>
       </div>
       <br>
@@ -407,14 +432,16 @@
 
 
       <!--Choose scheme-->
-      <h3>CHOOSE SCHEME APPLYING FOR:</h3>
-      <div class="form-group">
+      <h3> CHOOSE SCHEME APPLYING FOR:</h3>
+      <div class="form-group" [class.has-error]="schemeControl.invalid && schemeControl.touched">
         <div class="col-sm-12">
-          <select name="schemelist" [(ngModel)]="scholarships.scheme">
+          <select name="schemelist" [(ngModel)]="scholarships.scheme" #schemeControl="ngModel" autofocus required>
             <option value=""></option>
             <option value="scholarshipForGirls">Scholarship for Girls</option>
             <option value="scholarshipBasedOnMerit">Scholarship based on Merit</option>
+            <option value="post matric scholarship">Post Matric Scholarship</option>
           </select>
+          <span style="color:red;" class="help-block" *ngIf="schemeControl.invalid && schemeControl.touched">Select suitable option</span>
         </div>
       </div>
       <br>
@@ -533,7 +560,6 @@
           <div class="col-sm-3">
             <input type="file" class="btn btn-primary" style="font: bold 14px Arial;"autofocus required>
           </div>
-
         </div>
       </div>
 
@@ -582,7 +608,7 @@
 
       <!--SUBMIT-->
       <div class="form-group">
-        <input type="submit" (click)="check(regform)" class="btn btn-primary btn-lg btn-block"><br>
+        <input type="submit" (click)="check(regform)" class="btn btn-primary btn-lg btn-block" [disabled]="scholarshipForm.invalid"><br>
         <button type="reset" class="btn btn-primary" id="reset-btn" ng-click="reset()">Reset</button><br><br>
       </div>
 

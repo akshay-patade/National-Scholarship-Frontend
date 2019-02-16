@@ -11,7 +11,7 @@ export class ScholarshipApplicationComponent {
     scholarships: Scholarship = new Scholarship();
     response: string;
     checkBox: Boolean;
-    array = { msg: "" };
+    array={msg:""};
 
     constructor(public ss: ScholarshipApplicationService) {
 
@@ -29,20 +29,20 @@ export class ScholarshipApplicationComponent {
         let confirm = true;
     }
 
-    /*  //check whether checkbox is checked or not
-     else if (!this.checkBox) {
-         confirm = false;
-         this.array['msg'] = "Please check the above checkbox";
-     }
+       /*  //check whether checkbox is checked or not
+        else if (!this.checkBox) {
+            confirm = false;
+            this.array['msg'] = "Please check the above checkbox";
+        }
  
-     //Send the data to the database
-     if (confirm) {
-         this.ss.sendToServer(this.scholarships).subscribe(
-             data => {
-                 this.response = data['status'];
-             }
-         )
-     }
-*/
+        //Send the data to the database
+        if (confirm) {
+            this.ss.sendToServer(this.scholarships).subscribe(
+                data => {
+                    this.response = data['status'];
+                }
+            )
+        }
+ */
 
-}
+    }

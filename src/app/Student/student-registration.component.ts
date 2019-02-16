@@ -1,6 +1,8 @@
 import { Component } from '@angular/core'
 import { Student } from './student';
 import { StudentService } from './student-service';
+import { StudentSuccessComponent } from './student-success.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'student-registration',
@@ -9,14 +11,17 @@ import { StudentService } from './student-service';
 })
 export class StudentRegistrationComponent {
     students: Student = new Student();
+    success: StudentSuccessComponent;
+    uid: string;
     response: string;
     che: Boolean;
     confirmpass: string;
     array = { password: "", msg: "" };
 
-    constructor(public ss: StudentService) {
+    constructor(public ss: StudentService, private r: Router) {
 
     }
+
 
     keyPress(event: any) {
         const pattern = /[0-9\+\-\ ]/;
@@ -27,6 +32,7 @@ export class StudentRegistrationComponent {
     }
 
     check(regform) {
+        console.log("student reg component called");
         let confirm = true;
 
         //Verify the password
@@ -48,6 +54,9 @@ export class StudentRegistrationComponent {
                     this.response = data['status'];
                 }
             )
+            localStorage.setItem('adharNo', this.students.adharNo);
+            this.r.navigate(["/student-success"]);
         }
+
     }
 }  

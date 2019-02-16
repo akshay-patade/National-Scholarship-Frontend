@@ -21,18 +21,24 @@ import { StudentLoginComponent } from './Student/student-login.component';
 import { HeaderComponent } from './Homepage/header.component';
 import { FooterComponent } from './Homepage/footer.component';
 import { RouterModule, Routes } from '@angular/router';
-import { InstiStateMinistryComponent } from './InstiStateMinistry/insti.state.ministry.component';
 import { StudentLoginService } from './Student/student-login-service';
+import { InstituteLoginComponent } from './Institute/institue-login.component';
+import { StateLoginComponent } from './State/state-login.component';
+import { MinistryLoginComponent } from './Ministry/ministry-login.component';
+import { InstituteSuccessComponent } from './Institute/institute-success.component';
+import { StudentSuccessComponent } from './Student/student-success.component';
 
 
 const appRoutes: Routes= [
   {path:'home-page',component:HomePageComponent},
   {path:'student-login',component:StudentLoginComponent},
-  {path:'other-login',component:InstiStateMinistryComponent},
+  {path:'institue-login',component:InstituteLoginComponent},
+  {path:'state-login',component:StateLoginComponent},
+  {path:'ministry-login',component:MinistryLoginComponent},
   {path:'student-registration',component:StudentRegistrationComponent},
   {path:'institute-registration',component:InstituteRegistrationComponent},
-
-  
+  {path:'institute-success',component:InstituteSuccessComponent},
+  {path:'student-success',component:StudentSuccessComponent}
 ]
 
 
@@ -40,20 +46,17 @@ const appRoutes: Routes= [
   declarations: [
     AppComponent,
     StudentRegistrationComponent,
-    HomePageComponent,
-    InstituteRegistrationComponent,
     ScholarshipApplicationComponent,
-<<<<<<< HEAD
     HomePageComponent,
     InstituteRegistrationComponent,
     StudentLoginComponent,
+    InstituteLoginComponent,
+    StateLoginComponent,
+    MinistryLoginComponent,
     HeaderComponent,
     FooterComponent,
-    InstiStateMinistryComponent
-=======
-    
-
->>>>>>> 1ff9260157ea911f2c9037bdd195659f7f24e101
+    InstituteSuccessComponent,
+    StudentSuccessComponent
   ],
   imports: [
     BrowserModule,

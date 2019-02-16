@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 
 import { InstituteService } from './institute-service';
 import { Institute } from './institute';
+import { InstituteSuccessComponent } from './institute-success.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,13 +13,16 @@ import { Institute } from './institute';
 })
 export class InstituteRegistrationComponent {
     institutes: Institute = new Institute();
-    response: string;
+    response: Boolean;
     comppass: string;
-    address: string;
+    address1: string;
+    address2:string;
     array = { password: "", msg: "" };
-    constructor(public is: InstituteService) {
-        
+
+    constructor(private is: InstituteService, private r:Router ) {
+
     }
+
 
     keyPress(event: any) {
         const pattern = /[0-9\+\-\ ]/;
@@ -26,23 +31,30 @@ export class InstituteRegistrationComponent {
             event.preventDefault();
         }
     }
-    check(instituteForm) {
 
-        let confirm = false;
+    check(instituteForm) {
+        this.institutes.instituteAddress=this.address1+ " " +this.address2;
+        console.log(this.institutes.instituteAddress);
+        console.log(this.institutes.instituteAddress);
+        let confirm = true;
 
         if (this.comppass != this.institutes.password) {
             confirm = false;
             this.array['password'] = "Pasword does not match";
         }
-        if (confirm) {
 
+        if (confirm) {
             this.is.sendToServer(this.institutes).subscribe(
                 data => {
                     this.response = data['status']
                 }
             );
+            this.r.navigate(["/institute-success"]);
+            // }
+
+            // else {
+            //     this.r.navigate(["/error-message"]);
+            // }
         }
     }
 }
-
-
