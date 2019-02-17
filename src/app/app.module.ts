@@ -27,6 +27,7 @@ import { StateLoginComponent } from './State/state-login.component';
 import { MinistryLoginComponent } from './Ministry/ministry-login.component';
 import { InstituteSuccessComponent } from './Institute/institute-success.component';
 import { StudentSuccessComponent } from './Student/student-success.component';
+import { StudentDashboardComponent } from './Student/student-dashboard.component';
 
 
 const appRoutes: Routes= [
@@ -38,9 +39,9 @@ const appRoutes: Routes= [
   {path:'student-registration',component:StudentRegistrationComponent},
   {path:'institute-registration',component:InstituteRegistrationComponent},
   {path:'institute-success',component:InstituteSuccessComponent},
-  {path:'student-success',component:StudentSuccessComponent}
+  {path:'student-success',component:StudentSuccessComponent},
+  {path:'student-dashboard',component:StudentDashboardComponent}
 ]
-
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ const appRoutes: Routes= [
     HeaderComponent,
     FooterComponent,
     InstituteSuccessComponent,
-    StudentSuccessComponent
+    StudentSuccessComponent,
+    StudentDashboardComponent
   ],
   imports: [
     BrowserModule,

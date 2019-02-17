@@ -16,8 +16,10 @@
       <input type="password" id="password" name="password" [(ngModel)]="students.password" placeholder="Enter your Password"
         class="form-control" autofocus required>
     </div>
-    <p>{{response}}</p>
+    <p style="color:red;text-align: center">{{error}}</p>
   </div>
+
+
 
   <!--SUBMIT BUTTON-->
   <div class="form-group">
@@ -30,7 +32,7 @@
   <!--REMEMBER ME-->
   <div style="text-align: center" class="form-group">
     <div class="col-sm-12">
-      <input type="checkbox" > REMEMBER ME<br>
+      <input type="checkbox"> REMEMBER ME<br>
     </div>
   </div>
 

@@ -8,7 +8,5 @@ import { Component, Injectable } from '@angular/core'
 
 
 export class StudentSuccessComponent {
-    success:String=localStorage.getItem("adharNo");
-    
-
+    success:String=localStorage.getItem("adharNo"); 
 }

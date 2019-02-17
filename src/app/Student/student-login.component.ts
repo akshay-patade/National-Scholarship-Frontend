@@ -2,7 +2,8 @@
 import { OnInit, Component } from '@angular/core'
 import { Student } from './student';
 import { StudentLoginService } from './student-login-service';
-import { IfStmt, ConstantPool } from '@angular/compiler';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,11 +12,13 @@ import { IfStmt, ConstantPool } from '@angular/compiler';
 
 })
 export class StudentLoginComponent {
-    response: boolean;
+    response: string;
+    che: Boolean;
+    error:String="";
 
     students: Student = new Student();
 
-    constructor(public studentLoginService: StudentLoginService) {
+    constructor(public studentLoginService: StudentLoginService, private r: Router) {
 
     }
 
@@ -27,21 +30,22 @@ export class StudentLoginComponent {
         }
     }
 
-
     add(regform) {
-        console.log("Students datA " + JSON.stringify(this.students));
-        this.studentLoginService.sendToServer(this.students).subscribe(
+        this.studentLoginService.RetriveFromServer(this.students).subscribe(
             data => {
-                this.response = data['status'];
-            }
-        )
-        if(this.response) {
-            console.log("success");
-        }
-        else {
-
-            console.log("failure");
-        }
+                this.response=data['message'];
+                console.log(this.response);
+                if (this.response=="true") {
+                    localStorage.setItem('adharNo', this.students.adharNo);
+                    this.r.navigate(["/student-dashboard"]);
+                }
+                else {
+                this.error="Invalid username or password please try again";
+                console.log(this.error);
+                }
+            });
+        
+       
     }
 }
 
