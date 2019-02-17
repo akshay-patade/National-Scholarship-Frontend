@@ -49,7 +49,28 @@ export class StudentRegistrationComponent {
 
         //Send the data to the database
         if (confirm) {
-            this.ss.sendToServer(this.students).subscribe(
+
+            var json={
+                "adharNo":this.students.adharNo,
+                "stateOfDomicile":this.students.stateOfDomicile,
+                "district":this.students.district,
+                "name":this.students.name,
+                "dob":this.students.dob,
+                "gender":this.students.gender,
+                "mobileNo":this.students.mobileNo,
+                "email":this.students.email,
+                "bankIfscCode":this.students.bankIfscCode,
+                "bankAccNo":this.students.bankAccNo,
+                "bankName":this.students.bankName,
+                "password":this.students.password,
+
+                "institute":{
+                    "instituteCode":this.students.instituteCode
+                }
+
+            }
+
+            this.ss.sendToServer(json).subscribe(
                 data => {
                     this.response = data['status'];
                 }
